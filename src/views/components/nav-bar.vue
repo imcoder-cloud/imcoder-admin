@@ -27,7 +27,7 @@
         ></el-avatar>
       </div>
       <el-dropdown>
-        <span class="el-dropdown-link">
+        <span class="dropdown-menu">
           admin
           <i class="el-icon-arrow-down el-icon--right"></i>
         </span>
@@ -83,6 +83,9 @@ header {
     }
     .avatar {
       margin-right: 10px;
+    }
+    .dropdown-menu {
+      cursor: pointer;
     }
   }
 }
