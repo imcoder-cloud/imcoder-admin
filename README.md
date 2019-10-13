@@ -1,6 +1,6 @@
 # vue-admin
 
-基于 vue2 和 element-ui 2.12.0 开发的后台管理模板
+基于 vue2 和 element-ui 2.12.0 开发的后台管理模板<br>
 功能还在完善中
 
 ## Build Setup
