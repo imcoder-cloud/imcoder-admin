@@ -78,8 +78,7 @@ export default {
 
 <style lang="scss" scoped>
 .setting-container {
-  padding: 24px;
-  font-size: 14px;
+  padding: 25px;
   line-height: 1.5;
   word-wrap: break-word;
 

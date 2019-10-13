@@ -46,4 +46,7 @@ li {
   margin: 0;
   padding: 0;
 }
+.el-drawer {
+  width: 320px !important;
+}
 </style>
