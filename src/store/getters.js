@@ -1,7 +1,5 @@
 const getters = {
-  menu: state => state.settings.menu,
-  header: state => state.settings.header,
+  settings: state => state.settings.settings,
   visitedViews: state => state.viewsBar.visitedViews,
-  cachedViews: state => state.viewsBar.cachedViews
 }
 export default getters

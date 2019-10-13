@@ -1,22 +1,27 @@
+import commonUtil from '@/utils/commonUtil'
 const settings = {
   state: {
-    menu: { collapse: false },
-    header: { fixed: true }
+    settings: {
+      openSetting: commonUtil.getSettingStorage('openSetting'),
+      showViewsBar: commonUtil.getSettingStorage('showViewsBar'),
+      keepViewsByRefresh: commonUtil.getSettingStorage('keepViewsByRefresh'),
+      collapseMenu: commonUtil.getSettingStorage('collapseMenu')
+    }
   },
   mutations: {
-    TOGGLE_MENU: state => {
-      state.menu.collapse = !state.menu.collapse
-    },
-    SWITCH_FIXED_HEADER: state => {
-      state.header.fixed = !state.header.fixed
+    UPDATE_SETTINGS: (state, { key, value, type }) => {
+      if (type && type == 'toggle') {
+        state.settings[key] = !state.settings[key]
+        localStorage.setItem(key, state.settings[key])
+        return
+      }
+      state.settings[key] = value
+      localStorage.setItem(key, value)
     }
   },
   actions: {
-    toggleMenu: ({ commit }) => {
-      commit('TOGGLE_MENU')
-    },
-    switchFixedHeader: ({ commit }) => {
-      commit('SWITCH_FIXED_HEADER')
+    updateSettings: ({ commit }, param) => {
+      commit('UPDATE_SETTINGS', param)
     }
   }
 }

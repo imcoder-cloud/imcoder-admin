@@ -1,5 +1,5 @@
 <template>
-  <header>
+  <div class="nav-bar">
     <div>
       <button class="toggle-btn" @click="toggleMenu">
         <i class="el-icon-s-fold"></i>
@@ -8,16 +8,26 @@
     <div class="nav-bar-right">
       <ul>
         <li>
-          <i class="el-icon-message-solid"></i>
+          <el-tooltip effect="dark" content="消息" placement="bottom">
+            <el-badge :value="5">
+              <i class="el-icon-message-solid"></i>
+            </el-badge>
+          </el-tooltip>
         </li>
         <li>
-          <i class="el-icon-s-order"></i>
+          <el-tooltip effect="dark" content="便签" placement="bottom">
+            <i class="el-icon-s-order"></i>
+          </el-tooltip>
         </li>
         <li>
-          <i class="el-icon-share"></i>
+          <el-tooltip effect="dark" content="分享" placement="bottom">
+            <i class="el-icon-share"></i>
+          </el-tooltip>
         </li>
-        <li>
-          <i class="el-icon-s-tools"></i>
+        <li @click="openSettings">
+          <el-tooltip effect="dark" content="设置" placement="bottom">
+            <i class="el-icon-s-tools"></i>
+          </el-tooltip>
         </li>
       </ul>
       <div class="avatar">
@@ -39,7 +49,7 @@
         </el-dropdown-menu>
       </el-dropdown>
     </div>
-  </header>
+  </div>
 </template>
 
 <script>
@@ -49,24 +59,33 @@ export default {
   },
   methods: {
     toggleMenu: function() {
-      this.$store.dispatch("toggleMenu");
+      this.$store.dispatch("updateSettings", {
+        key: "collapseMenu",
+        type: "toggle"
+      });
+    },
+    openSettings: function() {
+      this.$store.dispatch("updateSettings", {
+        key: "openSetting",
+        value: true
+      });
     }
   }
 };
 </script>
 
 <style lang="scss" scoped>
-header {
+.nav-bar {
   display: flex;
   justify-content: space-between;
   align-items: center;
   height: 50px;
-  padding: 0 15px;
+  padding: 0 20px;
+  border-bottom: 1px solid #EBEEF5;
   .toggle-btn {
     background: none;
     border: none;
     font-size: 22px;
-    padding: 0 10px;
   }
   .nav-bar-right {
     display: flex;
