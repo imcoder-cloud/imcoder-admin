@@ -130,14 +130,13 @@ export default {
       });
     },
     refreshSelectedTag(view) {
-      this.$store.dispatch("delCachedView", view).then(() => {
-        const { fullPath } = view;
-        this.$nextTick(() => {
-          this.$router.replace({
-            path: "/redirect" + fullPath
-          });
-        });
-      });
+      window.location.reload()
+      // const { fullPath } = view;
+      // this.$nextTick(() => {
+      //   this.$router.replace({
+      //     path: "/redirect" + fullPath
+      //   });
+      // });
     },
     closeSelectedTag(view) {
       this.$store.dispatch("delView", view).then(({ visitedViews }) => {
@@ -184,8 +183,8 @@ export default {
       const menuMinWidth = 105;
       const offsetLeft = this.$el.getBoundingClientRect().left; // container margin left
       const offsetWidth = this.$el.offsetWidth; // container width
-      const maxLeft = offsetWidth - menuMinWidth; // left boundary
-      const left = e.clientX - offsetLeft + 15; // 15: margin right
+      const maxLeft = offsetWidth + offsetLeft - menuMinWidth; // left boundary
+      const left = e.clientX  + 5; // 向右间距5px
 
       if (left > maxLeft) {
         this.left = maxLeft;
