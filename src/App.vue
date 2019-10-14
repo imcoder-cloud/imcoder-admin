@@ -37,10 +37,14 @@ li {
 }
 
 /* element ui 样式重写 */
+
+/* 滚动条 */
 .el-scrollbar__wrap {
   overflow: scroll;
   overflow-x: hidden;
 }
+
+/* 右侧设置抽屉 */
 .el-drawer__header {
   height: 0px;
   margin: 0;
@@ -48,5 +52,17 @@ li {
 }
 .el-drawer {
   width: 320px !important;
+}
+
+/* 左侧导航栏 */
+.el-menu--collapse .el-menu-item .el-submenu__icon-arrow, .el-menu--collapse .el-submenu .el-submenu__title .el-submenu__icon-arrow {
+    display: none;
+}
+.el-menu--collapse .el-menu-item span, .el-menu--collapse .el-submenu .el-submenu__title span {
+    height: 0;
+    width: 0;
+    overflow: hidden;
+    visibility: hidden;
+    display: inline-block;
 }
 </style>
