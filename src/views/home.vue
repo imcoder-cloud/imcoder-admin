@@ -1,7 +1,7 @@
 <template>
   <el-container class="full-height">
     <el-aside :class="[isCollapse ? 'collpase' : 'expand']">
-      <aside-menu class="aside-menu" :is-collapse="isCollapse"></aside-menu>
+      <menu-bar class="aside-menu" :is-collapse="isCollapse"></menu-bar>
     </el-aside>
     <el-container class="full-height">
       <el-header class="top-header">
@@ -20,13 +20,13 @@
 
 <script>
 import { mapGetters } from "vuex";
-import AsideMenu from "./components/aside-menu";
+import MenuBar from "./components/menu-bar";
 import NavBar from "./components/nav-bar";
 import ViewsBar from "./components/views-bar";
 import Settings from "./components/settings";
 export default {
   components: {
-    AsideMenu,
+    MenuBar,
     NavBar,
     ViewsBar,
     Settings

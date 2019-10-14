@@ -65,57 +65,57 @@ const viewsBar = {
 
   },
   actions: {
-    addView({ dispatch }, view) {
+    addView ({ dispatch }, view) {
       dispatch('addVisitedView', view)
     },
-    addVisitedView({ commit }, view) {
+    addVisitedView ({ commit }, view) {
       commit('ADD_VISITED_VIEW', view)
     },
 
-    delView({ dispatch, state }, view) {
+    delView ({ dispatch, state }, view) {
       return new Promise(resolve => {
         dispatch('delVisitedView', view)
         resolve({
-          visitedViews: [...state.visitedViews],
+          visitedViews: [...state.visitedViews]
         })
       })
     },
-    delVisitedView({ commit, state }, view) {
+    delVisitedView ({ commit, state }, view) {
       return new Promise(resolve => {
         commit('DEL_VISITED_VIEW', view)
         resolve([...state.visitedViews])
       })
     },
 
-    delOthersViews({ dispatch, state }, view) {
+    delOthersViews ({ dispatch, state }, view) {
       return new Promise(resolve => {
         dispatch('delOthersVisitedViews', view)
         resolve({
-          visitedViews: [...state.visitedViews],
+          visitedViews: [...state.visitedViews]
         })
       })
     },
-    delOthersVisitedViews({ commit, state }, view) {
+    delOthersVisitedViews ({ commit, state }, view) {
       return new Promise(resolve => {
         commit('DEL_OTHERS_VISITED_VIEWS', view)
         resolve([...state.visitedViews])
       })
     },
-    delAllViews({ dispatch, state }, view) {
+    delAllViews ({ dispatch, state }, view) {
       return new Promise(resolve => {
         dispatch('delAllVisitedViews', view)
         resolve({
-          visitedViews: [...state.visitedViews],
+          visitedViews: [...state.visitedViews]
         })
       })
     },
-    delAllVisitedViews({ commit, state }) {
+    delAllVisitedViews ({ commit, state }) {
       return new Promise(resolve => {
         commit('DEL_ALL_VISITED_VIEWS')
         resolve([...state.visitedViews])
       })
     },
-    updateVisitedView({ commit }, view) {
+    updateVisitedView ({ commit }, view) {
       commit('UPDATE_VISITED_VIEW', view)
     }
   }

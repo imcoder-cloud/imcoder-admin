@@ -24,7 +24,7 @@ export default new Router({
           path: '/index',
           name: 'index',
           component: index,
-          meta: { title: '首页', icon: 'index', noCache: true, affix: true }
+          meta: { title: '首页', icon: 'index', fixed: true }
         },
         {
           path: '/user',

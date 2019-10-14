@@ -1,6 +1,11 @@
 <template>
   <div class="views-container">
-    <scroll-pane ref="scrollPane" class="tags-view-wrapper">
+    <el-scrollbar
+      ref="scrollContainer"
+      :vertical="false"
+      class="scroll-container"
+      @wheel.native.prevent="handleScroll"
+    >
       <router-link
         v-for="tag in visitedViews"
         ref="tag"
@@ -14,16 +19,17 @@
       >
         {{ tag.title }}
         <span
-          v-if="!tag.meta.affix"
+          v-if="!tag.meta.fixed"
           class="el-icon-close"
           @click.prevent.stop="closeSelectedTag(tag)"
         />
       </router-link>
-    </scroll-pane>
+    </el-scrollbar>
+
     <ul v-show="visible" :style="{left:left+'px',top:top+'px'}" class="contextmenu">
       <li @click="refreshSelectedTag(selectedTag)">刷新</li>
       <li
-        v-if="!(selectedTag.meta&&selectedTag.meta.affix)"
+        v-if="!(selectedTag.meta&&selectedTag.meta.fixed)"
         @click="closeSelectedTag(selectedTag)"
       >关闭</li>
       <li @click="closeOthersTags">关闭其他</li>
@@ -33,17 +39,18 @@
 </template>
 
 <script>
-import ScrollPane from "./scroll-pane";
 import path from "path";
 import routerMap from "@/router";
+
+const tagAndTagSpacing = 4;
+
 export default {
-  components: { ScrollPane },
   data() {
     return {
       visible: false,
       top: 0,
       left: 0,
-      affixTags: [],
+      fixedTags: [],
       selectedTag: {}
     };
   },
@@ -76,7 +83,7 @@ export default {
     filterFixedViews(routes, basePath = "/") {
       let tags = [];
       routes.forEach(route => {
-        if (route.meta && route.meta.affix) {
+        if (route.meta && route.meta.fixed) {
           const tagPath = path.resolve(basePath, route.path);
           tags.push({
             fullPath: tagPath,
@@ -95,10 +102,10 @@ export default {
       return tags;
     },
     initTags() {
-      const affixTags = (this.affixTags = this.filterFixedViews(
+      const fixedTags = (this.fixedTags = this.filterFixedViews(
         routerMap.options.routes
       ));
-      for (const tag of affixTags) {
+      for (const tag of fixedTags) {
         // Must have tag name
         if (tag.name) {
           this.$store.dispatch("addVisitedView", tag);
@@ -117,7 +124,7 @@ export default {
       this.$nextTick(() => {
         for (const tag of tags) {
           if (tag.to.path === this.$route.path) {
-            this.$refs.scrollPane.moveToTarget(tag);
+            this.moveToTarget(tag);
 
             // when query is different then update
             if (tag.to.fullPath !== this.$route.fullPath) {
@@ -130,13 +137,8 @@ export default {
       });
     },
     refreshSelectedTag(view) {
-      window.location.reload()
-      // const { fullPath } = view;
-      // this.$nextTick(() => {
-      //   this.$router.replace({
-      //     path: "/redirect" + fullPath
-      //   });
-      // });
+      const { fullPath } = view;
+      this.$router.replace({ path: fullPath });
     },
     closeSelectedTag(view) {
       this.$store.dispatch("delView", view).then(({ visitedViews }) => {
@@ -158,7 +160,7 @@ export default {
     },
     closeAllTags(view) {
       this.$store.dispatch("delAllViews").then(({ visitedViews }) => {
-        if (this.affixTags.some(tag => tag.path === view.path)) {
+        if (this.fixedTags.some(tag => tag.path === view.path)) {
           return;
         }
         this.toLastView(visitedViews, view);
@@ -173,7 +175,7 @@ export default {
         // you can adjust it according to your needs.
         if (view.name === "首页") {
           // to reload home page
-          this.$router.replace({ path: "/redirect" + view.fullPath });
+          this.$router.replace({ path: view.fullPath });
         } else {
           this.$router.push("/");
         }
@@ -184,7 +186,7 @@ export default {
       const offsetLeft = this.$el.getBoundingClientRect().left; // container margin left
       const offsetWidth = this.$el.offsetWidth; // container width
       const maxLeft = offsetWidth + offsetLeft - menuMinWidth; // left boundary
-      const left = e.clientX  + 5; // 向右间距5px
+      const left = e.clientX + 5; // 向右间距5px
 
       if (left > maxLeft) {
         this.left = maxLeft;
@@ -198,6 +200,67 @@ export default {
     },
     closeMenu() {
       this.visible = false;
+    },
+    handleScroll(e) {
+      const eventDelta = e.wheelDelta || -e.deltaY * 40;
+      const $scrollWrapper = this.$refs.scrollContainer.$refs.wrap;
+      $scrollWrapper.scrollLeft = $scrollWrapper.scrollLeft + eventDelta / 4;
+    },
+    moveToTarget(currentTag) {
+      const $container = this.$refs.scrollContainer.$el;
+      const $containerWidth = $container.offsetWidth;
+      const $scrollWrapper = this.$refs.scrollContainer.$refs.wrap;
+      const tagList = this.$refs.tag;
+
+      let firstTag = null;
+      let lastTag = null;
+      let prevTag = null;
+      let nextTag = null;
+
+      // find first tag and last tag
+      if (tagList.length > 0) {
+        firstTag = tagList[0];
+        lastTag = tagList[tagList.length - 1];
+      }
+
+      // find preTag and nextTag
+      for (let i = 0; i < tagList.length; i++) {
+        if (tagList[i] === currentTag) {
+          if (i === 0) {
+            nextTag = tagList[i].length > 1 && tagList[i + 1];
+          } else if (i === tagList.length - 1) {
+            prevTag = tagList[i].length > 1 && tagList[i - 1];
+          } else {
+            prevTag = tagList[i - 1];
+            nextTag = tagList[i + 1];
+          }
+          break;
+        }
+      }
+
+      if (firstTag === currentTag) {
+        $scrollWrapper.scrollLeft = 0;
+      } else if (lastTag === currentTag) {
+        $scrollWrapper.scrollLeft =
+          $scrollWrapper.scrollWidth - $containerWidth;
+      } else {
+        // the tag's offsetLeft after of nextTag
+        const afterNextTagOffsetLeft =
+          nextTag.$el.offsetLeft + nextTag.$el.offsetWidth + tagAndTagSpacing;
+
+        // the tag's offsetLeft before of prevTag
+        const beforePrevTagOffsetLeft =
+          prevTag.$el.offsetLeft - tagAndTagSpacing;
+
+        if (
+          afterNextTagOffsetLeft >
+          $scrollWrapper.scrollLeft + $containerWidth
+        ) {
+          $scrollWrapper.scrollLeft = afterNextTagOffsetLeft - $containerWidth;
+        } else if (beforePrevTagOffsetLeft < $scrollWrapper.scrollLeft) {
+          $scrollWrapper.scrollLeft = beforePrevTagOffsetLeft;
+        }
+      }
     }
   }
 };
@@ -211,7 +274,7 @@ export default {
   border-bottom: 1px solid #d8dce5;
   box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.12), 0 0 3px 0 rgba(0, 0, 0, 0.04);
   margin-top: -1px;
-  .tags-view-wrapper {
+  .scroll-container {
     .tags-view-item {
       display: inline-block;
       position: relative;
@@ -278,7 +341,7 @@ export default {
 
 <style rel="stylesheet/scss" lang="scss">
 //reset element css of el-icon-close
-.tags-view-wrapper {
+.scroll-container {
   .tags-view-item {
     .el-icon-close {
       width: 16px;
@@ -297,6 +360,21 @@ export default {
         background-color: #f56c6c;
         color: #fff;
       }
+    }
+  }
+}
+
+.scroll-container {
+  height: 35px;
+  white-space: nowrap;
+  position: relative;
+  overflow: hidden;
+  /deep/ {
+    .el-scrollbar__bar {
+      bottom: 0px;
+    }
+    .el-scrollbar__wrap {
+      height: 49px;
     }
   }
 }
