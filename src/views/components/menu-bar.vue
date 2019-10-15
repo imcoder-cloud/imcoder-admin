@@ -3,7 +3,6 @@
     <el-menu
       class="menu"
       :collapse="isCollapse"
-      default-active="0"
       router
       @select="handleSelect"
       background-color="#545c64"

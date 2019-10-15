@@ -22,22 +22,25 @@ router.beforeEach((to, from, next) => {
 })
 
 export const addRouter = (next, to) => {
-  let r = convertRouter(User.routers)
+  let rootRouter = {
+    path: '/',
+    name: 'home',
+    component: () => import('@/views/home'),
+    redirect: 'index',
+    children: convertRouter(User.routers)
+  }
+  // let r = convertRouter(User.routers)
+  // rootRouter.children = r
   store.dispatch('setDynamicRouters', User.routers)
-  router.addRoutes(r)
-  console.log(r)
+  router.addRoutes([rootRouter])
   next({ ...to, replace: true })
 }
 
 export const convertRouter = (routers) => { // 遍历后台传来的路由字符串，转换为组件对象
   const rtnRouters = routers.filter(router => {
     if (router.component) {
-      if (router.component === 'home') {
-        router.component = Home
-      } else {
-        const component = router.component
-        router.component = loadComponent(component)
-      }
+      const component = router.component
+      router.component = loadComponent(component)
     }
     if (router.children && router.children.length) {
       router.children = convertRouter(router.children)
@@ -48,7 +51,7 @@ export const convertRouter = (routers) => { // 遍历后台传来的路由字符
 }
 
 export const loadComponent = (viewPath) => {
-  return () => import('@/views/' + viewPath + '.vue')
+  return () => import('@/views/' + viewPath)
 }
 
 // export const filter = (next, to) => {

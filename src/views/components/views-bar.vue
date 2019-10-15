@@ -10,16 +10,16 @@
         v-for="tag in visitedViews"
         ref="tag"
         :class="isActive(tag)?'active':''"
-        :to="{ path: tag.path, query: tag.query, fullPath: tag.fullPath }"
+        :to="{ path: tag.path, query: tag.query, fullPath: tag.fullPath ,fixed:tag.fixed}"
         :key="tag.path"
         tag="span"
         class="tags-view-item"
         @click.middle.native="closeSelectedTag(tag)"
         @contextmenu.prevent.native="openMenu(tag,$event)"
       >
-        {{ tag.title }}
+        {{ tag.name }}
         <span
-          v-if="!tag.meta.fixed"
+          v-if="!tag.fixed"
           class="el-icon-close"
           @click.prevent.stop="closeSelectedTag(tag)"
         />
@@ -28,10 +28,7 @@
 
     <ul v-show="visible" :style="{left:left+'px',top:top+'px'}" class="contextmenu">
       <li @click="refreshSelectedTag(selectedTag)">刷新</li>
-      <li
-        v-if="!(selectedTag.meta&&selectedTag.meta.fixed)"
-        @click="closeSelectedTag(selectedTag)"
-      >关闭</li>
+      <li v-if="!(selectedTag.fixed)" @click="closeSelectedTag(selectedTag)">关闭</li>
       <li @click="closeOthersTags">关闭其他</li>
       <li @click="closeAllTags(selectedTag)">关闭所有</li>
     </ul>
@@ -41,6 +38,7 @@
 <script>
 import path from "path";
 import routerMap from "@/router";
+import Auth from "@/auth";
 
 const tagAndTagSpacing = 4;
 
@@ -83,13 +81,13 @@ export default {
     filterFixedViews(routes, basePath = "/") {
       let tags = [];
       routes.forEach(route => {
-        if (route.meta && route.meta.fixed) {
+        if (route.fixed) {
           const tagPath = path.resolve(basePath, route.path);
           tags.push({
             fullPath: tagPath,
             path: tagPath,
             name: route.name,
-            meta: { ...route.meta }
+            fixed: route.meta && route.meta.fixed
           });
         }
         if (route.children) {
@@ -103,7 +101,8 @@ export default {
     },
     initTags() {
       const fixedTags = (this.fixedTags = this.filterFixedViews(
-        routerMap.options.routes
+        // routerMap.options.routes
+        Auth.getDynamicRouters()
       ));
       for (const tag of fixedTags) {
         // Must have tag name

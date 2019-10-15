@@ -22,14 +22,10 @@
 </template>
 
 <script>
-import Rules from "@/components/rules";
+import rules from "@/config/rules";
 import Auth from "@/auth";
 import User from "@/json/user";
-const rules = Rules.data().rules;
 export default {
-  //   components: {
-  //     rules
-  //   },
   data() {
     return {
       userInfo: {

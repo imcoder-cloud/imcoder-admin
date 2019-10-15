@@ -21,6 +21,12 @@ const user = {
       state.dynamicRouters = state.routers
       Auth.setRouters(state.routers)
     },
+    GET_DYNAMIC_ROUTER: (state) => {
+      // return state.dynamicRouters
+      let t = Auth.getDynamicRouters()
+      // return Auth.getDynamicRouters()
+      return t
+    },
     SET_DYNAMIC_ROUTER: (state, routers) => {
       state.dynamicRouters = routers
       Auth.setDynamicRouters(state.dynamicRouters)
@@ -36,6 +42,9 @@ const user = {
     },
     setRouters: ({ commit }, routers) => {
       commit('SET_ROUTER', routers)
+    },
+    getDynamicRouters: ({ commit }) => {
+      commit('GET_DYNAMIC_ROUTER')
     },
     setDynamicRouters: ({ commit }, routers) => {
       commit('SET_DYNAMIC_ROUTER', routers)
