@@ -10,7 +10,7 @@ const settings = {
   },
   mutations: {
     UPDATE_SETTINGS: (state, { key, value, type }) => {
-      if (type && type == 'toggle') {
+      if (type && type === 'toggle') {
         state.settings[key] = !state.settings[key]
         localStorage.setItem(key, state.settings[key])
         return

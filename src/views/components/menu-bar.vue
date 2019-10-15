@@ -14,13 +14,14 @@
         <div v-else>模拟</div>
       </el-menu-item>
 
-      <menu-item v-for="menu in menuList" :key="menu.id" :menu="menu" />
+      <menu-item v-for="menu in menus" :key="menu.id" :menu="menu" />
     </el-menu>
   </el-scrollbar>
 </template>
 
 <script>
 import MenuItem from "./menu-item";
+import { mapGetters } from "vuex";
 export default {
   components: {
     MenuItem
@@ -33,86 +34,14 @@ export default {
   },
   data() {
     return {
-      menuList: [
-        {
-          id: 1,
-          path: "/index",
-          title: "首页",
-          icon: "el-icon-s-home",
-          parentId: 0,
-          fixed: true,
-          component: () => import("@/views/home")
-        },
-        {
-          id: 2,
-          path: "/user",
-          title: "用户管理",
-          icon: "el-icon-user-solid",
-          parentId: 0,
-          children: [
-            {
-              id: 3,
-              path: "/user/query",
-              title: "用户查询",
-              icon: "el-icon-menu",
-              parentId: 2,
-              component: () => import("@/views/user/user")
-            },
-            {
-              id: 4,
-              path: "/user/query",
-              title: "用户新增",
-              icon: "el-icon-menu",
-              parentId: 2,
-              component: () => import("@/views/user/user1")
-            }
-          ]
-        },
-        {
-          id: 5,
-          path: "/other",
-          title: "其他模拟菜单",
-          icon: "el-icon-star-on",
-          parentId: 0,
-          children: [
-            {
-              id: 6,
-              path: "/user/query",
-              title: "二级菜单 1",
-              icon: "el-icon-menu",
-              parentId: 5,
-              component: () => import("@/views/user/user")
-            },
-            {
-              id: 7,
-              path: "/user/query",
-              title: "二级菜单 2",
-              icon: "el-icon-menu",
-              parentId: 5,
-              component: () => import("@/views/user/user1"),
-              children: [
-                {
-                  id: 8,
-                  path: "/user/query",
-                  title: "三级级菜单 1",
-                  icon: "el-icon-menu",
-                  parentId: 7,
-                  component: () => import("@/views/user/user")
-                },
-                {
-                  id: 9,
-                  path: "/user/query",
-                  title: "三级级菜单 2",
-                  icon: "el-icon-menu",
-                  parentId: 7,
-                  component: () => import("@/views/user/user1")
-                }
-              ]
-            }
-          ]
-        }
-      ]
+      menuList: []
     };
+  },
+  computed: {
+    ...mapGetters(["dynamicRouters"]),
+    menus: function() {
+      return this.dynamicRouters;
+    }
   },
   methods: {
     handleSelect(key, keyPath) {}

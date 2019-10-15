@@ -4,7 +4,7 @@
       :model="userInfo"
       status-icon
       :rules="rules"
-      ref="ruleForm"
+      ref="loginForm"
       label-width="100px"
       class="login-form"
     >
@@ -23,11 +23,13 @@
 
 <script>
 import Rules from "@/components/rules";
+import Auth from "@/auth";
+import User from "@/json/user";
 const rules = Rules.data().rules;
 export default {
-//   components: {
-//     rules
-//   },
+  //   components: {
+  //     rules
+  //   },
   data() {
     return {
       userInfo: {
@@ -39,7 +41,24 @@ export default {
   },
   methods: {
     login: function() {
-      this.$router.push({ path: "/index" });
+      this.$refs.loginForm.validate(valid => {
+        if (valid) {
+          // 模拟登录成功
+          if (
+            this.userInfo.userName == User.userName &&
+            this.userInfo.password == User.password
+          ) {
+            Auth.setToken("123456789");
+            // this.$store.dispatch('setRouters', User.routers)
+            this.$router.push({ path: "/index" });
+          } else {
+            console.log("用户名或密码错误");
+          }
+        } else {
+          console.log("error submit!!");
+          return false;
+        }
+      });
     }
   }
 };
