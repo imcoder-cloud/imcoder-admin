@@ -37,8 +37,17 @@ li {
   height: 100%;
 }
 
-/* element ui 样式重写 */
+/* font awesome 菜单中图标样式*/
+.el-menu-item .fa,
+.el-submenu .fa {
+  margin-right: 5px;
+  width: 24px;
+  text-align: center;
+  font-size: 18px;
+  vertical-align: middle;
+}
 
+/* element ui 样式重写 */
 /* 滚动条 */
 .el-scrollbar__wrap {
   overflow: scroll;
@@ -56,14 +65,16 @@ li {
 }
 
 /* 左侧导航栏 */
-.el-menu--collapse .el-menu-item .el-submenu__icon-arrow, .el-menu--collapse .el-submenu .el-submenu__title .el-submenu__icon-arrow {
-    display: none;
+.el-menu--collapse .el-menu-item .el-submenu__icon-arrow,
+.el-menu--collapse .el-submenu .el-submenu__title .el-submenu__icon-arrow {
+  display: none;
 }
-.el-menu--collapse .el-menu-item span, .el-menu--collapse .el-submenu .el-submenu__title span {
-    height: 0;
-    width: 0;
-    overflow: hidden;
-    visibility: hidden;
-    display: inline-block;
+.el-menu--collapse .el-menu-item span,
+.el-menu--collapse .el-submenu .el-submenu__title span {
+  height: 0;
+  width: 0;
+  overflow: hidden;
+  visibility: hidden;
+  display: inline-block;
 }
 </style>

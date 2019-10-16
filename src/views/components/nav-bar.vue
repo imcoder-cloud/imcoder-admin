@@ -1,9 +1,15 @@
 <template>
   <div class="nav-bar">
-    <div>
+    <div class="nav-bar-left">
       <button class="toggle-btn" @click="toggleMenu">
         <i class="el-icon-s-fold"></i>
       </button>
+      <el-breadcrumb separator="/">
+        <template v-for="(item,index) in items">
+          <el-breadcrumb-item v-if="index == 0" :to="item" :key="item.name">{{item.name}}</el-breadcrumb-item>
+          <el-breadcrumb-item v-else :key="item.name">{{item.name}}</el-breadcrumb-item>
+        </template>
+      </el-breadcrumb>
     </div>
     <div class="nav-bar-right">
       <ul>
@@ -55,9 +61,41 @@
 <script>
 export default {
   data() {
-    return {};
+    return {
+      items: []
+    };
+  },
+  watch: {
+    $route() {
+      this.getBreadcrumb();
+    }
+  },
+  mounted() {
+    this.getBreadcrumb();
   },
   methods: {
+    getBreadcrumb: function() {
+      let matched = this.$route.matched.filter(item => {
+        if (item.name) {
+          return true;
+        }
+      });
+      let first = matched[0];
+      if (first && first.name === "home") {
+        // 首页的上级菜单
+        matched.splice(0, 1); //删除上级菜单
+        first = matched[0];
+      }
+      if (first && first.name !== "首页") {
+        matched = [
+          { path: "/", name: "首页", fixed: true, meta: { fixed: true } }
+        ].concat(matched);
+      }
+      if (matched.length >= 4) {
+        matched.splice(1, 1);
+      }
+      this.items = matched;
+    },
     toggleMenu: function() {
       this.$store.dispatch("updateSettings", {
         key: "collapseMenu",
@@ -81,11 +119,18 @@ export default {
   align-items: center;
   height: 50px;
   padding: 0 20px;
-  border-bottom: 1px solid #EBEEF5;
+  border-bottom: 1px solid #ebeef5;
   .toggle-btn {
     background: none;
     border: none;
     font-size: 22px;
+    margin-right: 15px;
+    line-height: 22px;
+    display: inline-block;
+  }
+  .nav-bar-left {
+    display: flex;
+    align-items: center;
   }
   .nav-bar-right {
     display: flex;
