@@ -7,7 +7,7 @@
       <transition name="el-fade-in-linear">
         <el-breadcrumb separator="/" v-show="show" v-if="showBreadCrumb">
           <el-breadcrumb-item v-for="(item,index) in items" :key="item.name">
-            <a v-if="index == 0 && item.name != '首页'" :href="item.path">{{item.name}}</a>
+            <a v-if="index == 0 && items.length != 1" :href="item.path">{{item.name}}</a>
             <span v-else>{{item.name}}</span>
           </el-breadcrumb-item>
         </el-breadcrumb>
