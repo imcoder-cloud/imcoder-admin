@@ -10,12 +10,6 @@ export default new Router({
       path: '/login',
       name: 'login',
       component: () => import('@/views/login')
-    },
-    {
-      path: '/',
-      name: 'home',
-      component: () => import('@/views/home'),
-      redirect: 'index'
     }
   ]
 })

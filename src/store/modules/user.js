@@ -1,4 +1,3 @@
-import Auth from '@/auth'
 import router from '@/router/index'
 
 const user = {
@@ -18,18 +17,12 @@ const user = {
     },
     SET_ROUTER: (state, routers) => {
       state.routers = state.routers.concat(routers)
-      state.dynamicRouters = state.routers
-      Auth.setRouters(state.routers)
     },
     GET_DYNAMIC_ROUTER: (state) => {
-      // return state.dynamicRouters
-      let t = Auth.getDynamicRouters()
-      // return Auth.getDynamicRouters()
-      return t
+      return state.dynamicRouters
     },
     SET_DYNAMIC_ROUTER: (state, routers) => {
       state.dynamicRouters = routers
-      Auth.setDynamicRouters(state.dynamicRouters)
     }
   },
 

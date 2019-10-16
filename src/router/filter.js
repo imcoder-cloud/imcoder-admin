@@ -2,8 +2,8 @@ import router from './index'
 import Auth from '@/auth'
 import Config from '@/config/index'
 import store from '@/store'
+// 模拟用户数据 仅作测试使用
 import User from '@/json/user'
-import Home from '@/views/home'
 
 router.beforeEach((to, from, next) => {
   if (Auth.getToken()) { // 判断是否登录
@@ -21,18 +21,18 @@ router.beforeEach((to, from, next) => {
   }
 })
 
+router.afterEach(() => {
+
+})
+
 export const addRouter = (next, to) => {
-  let rootRouter = {
-    path: '/',
-    name: 'home',
-    component: () => import('@/views/home'),
-    redirect: 'index',
-    children: convertRouter(User.routers)
+  let routers = Auth.getDynamicRouters()
+  if (routers.length === 0) { // 本地为存储
+    routers = User.routers
+    Auth.setDynamicRouters(routers)
   }
-  // let r = convertRouter(User.routers)
-  // rootRouter.children = r
   store.dispatch('setDynamicRouters', User.routers)
-  router.addRoutes([rootRouter])
+  router.addRoutes(convertRouter(routers))
   next({ ...to, replace: true })
 }
 
@@ -53,7 +53,3 @@ export const convertRouter = (routers) => { // 遍历后台传来的路由字符
 export const loadComponent = (viewPath) => {
   return () => import('@/views/' + viewPath)
 }
-
-// export const filter = (next, to) => {
-
-// }

@@ -24,6 +24,7 @@
 <script>
 import rules from "@/config/rules";
 import Auth from "@/auth";
+// 模拟用户数据 仅作测试使用
 import User from "@/json/user";
 export default {
   data() {
@@ -45,13 +46,12 @@ export default {
             this.userInfo.password == User.password
           ) {
             Auth.setToken("123456789");
-            // this.$store.dispatch('setRouters', User.routers)
-            this.$router.push({ path: "/index" });
+            this.$router.push({ path: "/" });
           } else {
             console.log("用户名或密码错误");
           }
         } else {
-          console.log("error submit!!");
+          console.log("登录失败");
           return false;
         }
       });

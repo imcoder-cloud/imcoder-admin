@@ -3,7 +3,6 @@
     <el-menu
       class="menu"
       :collapse="isCollapse"
-      router
       @select="handleSelect"
       background-color="#545c64"
       text-color="#fff"
@@ -13,7 +12,7 @@
         <div v-else>模拟</div>
       </el-menu-item>
 
-      <menu-item v-for="menu in menus" :key="menu.id" :menu="menu" />
+      <menu-item v-for="menu in menus" :key="menu.id" :menu="menu" :base-path="menu.path" />
     </el-menu>
   </el-scrollbar>
 </template>

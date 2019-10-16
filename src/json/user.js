@@ -4,18 +4,26 @@ const user = {
   roles: [],
   routers: [
     {
-      id: 1,
-      path: 'index',
-      name: '首页',
-      icon: 'el-icon-s-home',
-      parentId: 0,
-      fixed: true,
-      component: 'index',
-      meta: { fixed: true }
+      path: '/',
+      name: 'home',
+      component: 'home',
+      redirect: 'index',
+      children: [
+        {
+          id: 1,
+          path: 'index',
+          name: '首页',
+          icon: 'el-icon-s-home',
+          parentId: 0,
+          fixed: true,
+          component: 'index',
+          meta: { fixed: true }
+        }
+      ]
     },
     {
       id: 2,
-      path: 'user',
+      path: '/user',
       name: '用户管理',
       icon: 'el-icon-user-solid',
       parentId: 0,
