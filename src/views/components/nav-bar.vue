@@ -4,12 +4,14 @@
       <button class="toggle-btn" @click="toggleMenu">
         <i class="el-icon-s-fold"></i>
       </button>
-      <el-breadcrumb separator="/">
-        <template v-for="(item,index) in items">
-          <el-breadcrumb-item v-if="index == 0" :to="item" :key="item.name">{{item.name}}</el-breadcrumb-item>
-          <el-breadcrumb-item v-else :key="item.name">{{item.name}}</el-breadcrumb-item>
-        </template>
-      </el-breadcrumb>
+      <transition name="el-fade-in-linear">
+        <el-breadcrumb separator="/" v-show="show" v-if="showBreadCrumb">
+          <el-breadcrumb-item v-for="(item,index) in items" :key="item.name">
+            <a v-if="index == 0 && item.name != '首页'" :href="item.path">{{item.name}}</a>
+            <span v-else>{{item.name}}</span>
+          </el-breadcrumb-item>
+        </el-breadcrumb>
+      </transition>
     </div>
     <div class="nav-bar-right">
       <ul>
@@ -42,7 +44,7 @@
           src="https://cube.elemecdn.com/3/7c/3ea6beec64369c2642b92c6726f1epng.png"
         ></el-avatar>
       </div>
-      <el-dropdown>
+      <el-dropdown @command="handleCommand">
         <span class="dropdown-menu">
           admin
           <i class="el-icon-arrow-down el-icon--right"></i>
@@ -50,7 +52,7 @@
         <el-dropdown-menu slot="dropdown">
           <el-dropdown-item icon="el-icon-user-solid">基本资料</el-dropdown-item>
           <el-dropdown-item icon="el-icon-info">关于我们</el-dropdown-item>
-          <el-dropdown-item icon="el-icon-s-tools">系统设置</el-dropdown-item>
+          <el-dropdown-item command="settings" icon="el-icon-s-tools">系统设置</el-dropdown-item>
           <el-dropdown-item divided icon="el-icon-error">退出登录</el-dropdown-item>
         </el-dropdown-menu>
       </el-dropdown>
@@ -59,10 +61,12 @@
 </template>
 
 <script>
+import { mapGetters } from "vuex";
 export default {
   data() {
     return {
-      items: []
+      items: [],
+      show: false
     };
   },
   watch: {
@@ -73,8 +77,15 @@ export default {
   mounted() {
     this.getBreadcrumb();
   },
+  computed: {
+    ...mapGetters(["settings"]),
+    showBreadCrumb() {
+      return this.settings.showBreadCrumb;
+    }
+  },
   methods: {
     getBreadcrumb: function() {
+      this.show = false;
       let matched = this.$route.matched.filter(item => {
         if (item.name) {
           return true;
@@ -95,6 +106,7 @@ export default {
         matched.splice(1, 1);
       }
       this.items = matched;
+      this.show = true;
     },
     toggleMenu: function() {
       this.$store.dispatch("updateSettings", {
@@ -107,6 +119,16 @@ export default {
         key: "openSetting",
         value: true
       });
+    },
+    handleCommand: function(command) {
+      switch (command) {
+        case "settings":
+          this.openSettings();
+          break;
+
+        default:
+          break;
+      }
     }
   }
 };

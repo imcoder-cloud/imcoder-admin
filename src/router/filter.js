@@ -27,7 +27,7 @@ router.afterEach(() => {
 
 export const addRouter = (next, to) => {
   let routers = Auth.getDynamicRouters()
-  if (routers.length === 0) { // 本地为存储
+  if (routers.length === 0) { // 本地无存储
     routers = User.routers
     Auth.setDynamicRouters(routers)
   }
@@ -36,7 +36,7 @@ export const addRouter = (next, to) => {
   next({ ...to, replace: true })
 }
 
-export const convertRouter = (routers) => { // 遍历后台传来的路由字符串，转换为组件对象
+export const convertRouter = (routers) => { // 将路由字符串转换为组件对象
   const rtnRouters = routers.filter(router => {
     if (router.component) {
       const component = router.component

@@ -5,7 +5,8 @@ const settings = {
       openSetting: commonUtil.getSettingStorage('openSetting'),
       showViewsBar: commonUtil.getSettingStorage('showViewsBar'),
       keepViewsByRefresh: commonUtil.getSettingStorage('keepViewsByRefresh'),
-      collapseMenu: commonUtil.getSettingStorage('collapseMenu')
+      collapseMenu: commonUtil.getSettingStorage('collapseMenu'),
+      showBreadCrumb: commonUtil.getSettingStorage('showBreadCrumb')
     }
   },
   mutations: {

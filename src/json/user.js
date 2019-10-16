@@ -54,7 +54,7 @@ const user = {
       ]
     },
     {
-      id: 2,
+      id: 5,
       path: '/user',
       name: '用户管理',
       icon: 'el-icon-user-solid',
@@ -62,19 +62,19 @@ const user = {
       component: 'home',
       children: [
         {
-          id: 3,
+          id: 6,
           path: 'query',
           name: '用户查询',
           icon: 'el-icon-menu',
-          parentId: 2,
+          parentId: 5,
           component: 'user/user'
         },
         {
-          id: 4,
+          id: 7,
           path: 'add',
           name: '用户新增',
           icon: 'el-icon-menu',
-          parentId: 2,
+          parentId: 5,
           component: 'user/user1'
         }
       ]

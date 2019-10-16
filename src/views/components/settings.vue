@@ -15,6 +15,10 @@
           <span>收缩菜单栏</span>
           <el-switch v-model="collapseMenu" class="setting-switch" />
         </div>
+        <div class="setting-item">
+          <span>开启面包屑</span>
+          <el-switch v-model="showBreadCrumb" class="setting-switch" />
+        </div>
       </div>
     </div>
   </el-drawer>
@@ -60,6 +64,17 @@ export default {
       set(value) {
         this.$store.dispatch("updateSettings", {
           key: "collapseMenu",
+          value: value
+        });
+      }
+    },
+    showBreadCrumb: {
+      get() {
+        return this.settings.showBreadCrumb;
+      },
+      set(value) {
+        this.$store.dispatch("updateSettings", {
+          key: "showBreadCrumb",
           value: value
         });
       }
