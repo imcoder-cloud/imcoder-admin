@@ -55,24 +55,42 @@ const user = {
     },
     {
       id: 5,
-      path: '/user',
-      name: '用户管理',
+      path: '/menu',
+      name: '多级菜单',
       icon: 'el-icon-user-solid',
       parentId: 0,
       component: 'home',
       children: [
         {
           id: 6,
-          path: 'query',
-          name: '用户查询',
+          path: 'menu-1',
+          name: '二级菜单 1',
           icon: 'el-icon-menu',
           parentId: 5,
-          component: 'user/user'
+          component: 'home',
+          children: [
+            {
+              id: 8,
+              path: 'menu-1-1',
+              name: '三级菜单 1',
+              icon: 'el-icon-menu',
+              parentId: 6,
+              component: 'user/user'
+            },
+            {
+              id: 9,
+              path: 'add',
+              name: '三级菜单 2',
+              icon: 'el-icon-menu',
+              parentId: 6,
+              component: 'user/user1'
+            }
+          ]
         },
         {
           id: 7,
           path: 'add',
-          name: '用户新增',
+          name: '二级菜单 2',
           icon: 'el-icon-menu',
           parentId: 5,
           component: 'user/user1'
