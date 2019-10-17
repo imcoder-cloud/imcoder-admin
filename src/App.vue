@@ -11,6 +11,7 @@ export default {
 </script>
 
 <style>
+/* 全局样式 */
 html,
 body {
   margin: 0;
@@ -33,7 +34,7 @@ li {
   height: 100%;
 }
 
-.full-height[data-v-7eb2bc79] {
+.full-height {
   height: 100%;
 }
 
@@ -51,7 +52,7 @@ li {
 /* 滚动条 */
 .el-scrollbar__wrap {
   overflow: scroll;
-  overflow-x: hidden;
+  overflow-x: hidden !important;
 }
 
 /* 右侧设置抽屉 */
