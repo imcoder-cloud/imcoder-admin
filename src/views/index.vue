@@ -6,7 +6,7 @@
         github 地址：
         <a href="https://github.com/dongdong-cloud/dd-admin-web">https://github.com/dongdong-cloud/dd-admin-web</a> &nbsp;&nbsp;&nbsp;
         码云地址：
-        <a href="https://gitee.com/dongdong-cloud/vue-admin">https://gitee.com/dongdong-cloud/vue-admin</a>
+        <a href="https://gitee.com/dongdong-cloud/dd-admin-web">https://gitee.com/dongdong-cloud/dd-admin-web</a>
       </slot>
     </el-alert>
 
