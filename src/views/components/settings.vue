@@ -16,6 +16,10 @@
           <el-switch v-model="collapseMenu" class="setting-switch" />
         </div>
         <div class="setting-item">
+          <span>只保持一个菜单展开</span>
+          <el-switch v-model="uniqueOpened" class="setting-switch" />
+        </div>
+        <div class="setting-item">
           <span>开启面包屑</span>
           <el-switch v-model="showBreadCrumb" class="setting-switch" />
         </div>
@@ -64,6 +68,17 @@ export default {
       set(value) {
         this.$store.dispatch("updateSettings", {
           key: "collapseMenu",
+          value: value
+        });
+      }
+    },
+    uniqueOpened: {
+      get() {
+        return this.settings.uniqueOpened;
+      },
+      set(value) {
+        this.$store.dispatch("updateSettings", {
+          key: "uniqueOpened",
           value: value
         });
       }

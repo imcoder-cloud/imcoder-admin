@@ -66,7 +66,6 @@ export default {
   background-color: #545c64;
 }
 .main {
-  padding: 15px;
-  height: 500px;
+  padding: 20px;
 }
 </style>

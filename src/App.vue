@@ -37,6 +37,12 @@ li {
 .full-height {
   height: 100%;
 }
+.mt30 {
+  margin-top: 30px;
+}
+.mb30 {
+  margin-bottom: 30px;
+}
 
 /* font awesome 菜单中图标样式*/
 .el-menu-item .fa,

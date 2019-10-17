@@ -3,6 +3,7 @@
     <el-menu
       class="menu"
       :collapse="isCollapse"
+      :unique-opened="uniqueOpened"
       @select="handleSelect"
       background-color="#545c64"
       text-color="#fff"
@@ -36,9 +37,12 @@ export default {
     };
   },
   computed: {
-    ...mapGetters(["dynamicRouters"]),
+    ...mapGetters(["dynamicRouters", "settings"]),
     menus: function() {
       return this.dynamicRouters;
+    },
+    uniqueOpened: function() {
+      return this.settings.uniqueOpened;
     }
   },
   methods: {

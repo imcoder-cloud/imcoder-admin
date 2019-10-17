@@ -6,6 +6,7 @@ const settings = {
       showViewsBar: commonUtil.getSettingStorage('showViewsBar'),
       keepViewsByRefresh: commonUtil.getSettingStorage('keepViewsByRefresh'),
       collapseMenu: commonUtil.getSettingStorage('collapseMenu'),
+      uniqueOpened: commonUtil.getSettingStorage('uniqueOpened'),
       showBreadCrumb: commonUtil.getSettingStorage('showBreadCrumb')
     }
   },

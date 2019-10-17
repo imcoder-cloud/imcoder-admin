@@ -29,7 +29,7 @@ const user = {
     },
     {
       id: 2,
-      path: '/user',
+      path: '/component',
       name: '组件管理',
       icon: 'fa fa-cogs',
       parentId: 0,
