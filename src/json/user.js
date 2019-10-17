@@ -55,7 +55,7 @@ const user = {
     },
     {
       id: 5,
-      path: '/menu',
+      path: '/menu-1',
       name: '多级菜单',
       icon: 'el-icon-user-solid',
       parentId: 0,
@@ -63,37 +63,37 @@ const user = {
       children: [
         {
           id: 6,
-          path: 'menu-1',
+          path: 'menu-1-1',
           name: '二级菜单 1',
           icon: 'el-icon-menu',
           parentId: 5,
-          component: 'home',
+          component: 'menu-1/menu-1-1',
           children: [
             {
               id: 8,
-              path: 'menu-1-1',
+              path: 'menu-1-1-1',
               name: '三级菜单 1',
               icon: 'el-icon-menu',
               parentId: 6,
-              component: 'user/user'
+              component: 'menu-1/menu-1-1/menu-1-1-1'
             },
             {
               id: 9,
-              path: 'add',
+              path: 'menu-1-1-2',
               name: '三级菜单 2',
               icon: 'el-icon-menu',
               parentId: 6,
-              component: 'user/user1'
+              component: 'menu-1/menu-1-1/menu-1-1-2'
             }
           ]
         },
         {
           id: 7,
-          path: 'add',
+          path: 'menu-1-2',
           name: '二级菜单 2',
           icon: 'el-icon-menu',
           parentId: 5,
-          component: 'user/user1'
+          component: 'menu-1/menu-1-2'
         }
       ]
     }
