@@ -57,7 +57,7 @@ const user = {
       id: 5,
       path: '/menu-1',
       name: '多级菜单',
-      icon: 'el-icon-user-solid',
+      icon: 'el-icon-menu',
       parentId: 0,
       component: 'home',
       children: [

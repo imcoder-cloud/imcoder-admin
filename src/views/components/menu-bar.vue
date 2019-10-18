@@ -7,10 +7,12 @@
       @select="handleSelect"
       background-color="#545c64"
       text-color="#fff"
+      :default-active="this.$route.path"
     >
       <el-menu-item index="0">
-        <i v-if="isCollapse" class="el-icon-s-home" />
-        <div v-else>模拟</div>
+        <div class="logo">
+          <a href="/index">{{isCollapse?'Dd':'Dd - Admin'}}</a>
+        </div>
       </el-menu-item>
 
       <menu-item v-for="menu in menus" :key="menu.id" :menu="menu" :base-path="menu.path" />
@@ -53,16 +55,17 @@ export default {
 <style lang="scss" scoped>
 .menu {
   border: none;
+  .logo {
+    a {
+      color: #fff;
+    }
+    font-size: 20px;
+    font-weight: bolder;
+    text-align: center;
+  }
 }
 .menu:not(.el-menu--collapse) {
   text-align: left;
   width: 200px !important;
-  .logo {
-    height: 50px;
-    line-height: 50px;
-    text-align: center;
-    background-color: #545c64;
-    color: #fff;
-  }
 }
 </style>

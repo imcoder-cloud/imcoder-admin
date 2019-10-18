@@ -201,7 +201,7 @@ export default {
       this.visible = false;
     },
     handleScroll(e) {
-      const eventDelta = e.wheelDelta || -e.deltaY * 40;
+      const eventDelta = -e.wheelDelta || -e.deltaY * 40;
       const $scrollWrapper = this.$refs.scrollContainer.$refs.wrap;
       $scrollWrapper.scrollLeft = $scrollWrapper.scrollLeft + eventDelta / 4;
     },
@@ -287,6 +287,7 @@ export default {
       font-size: 12px;
       margin-left: 5px;
       margin-top: 4px;
+      border-radius: 3px;
       &:first-of-type {
         margin-left: 15px;
       }
