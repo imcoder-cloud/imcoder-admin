@@ -1,8 +1,8 @@
 <template>
   <div>
     <el-divider content-position="left">基础表格</el-divider>
-    <el-row :gutter="30">
-      <el-col :span="8">
+    <el-row class="flex-wrap" :gutter="20">
+      <dd-col :xl="6" :lg="12">
         <el-card class="box-card">
           <div slot="header" class="clearfix">
             <span>一般表格</span>
@@ -13,8 +13,8 @@
             <el-table-column prop="address" label="地址" show-overflow-tooltip></el-table-column>
           </el-table>
         </el-card>
-      </el-col>
-      <el-col :span="8">
+      </dd-col>
+      <dd-col :xl="6" :lg="12">
         <el-card class="box-card">
           <div slot="header" class="clearfix">
             <span>条纹表格</span>
@@ -23,11 +23,13 @@
             <el-table-column type="selection" width="50"></el-table-column>
             <el-table-column prop="id" label="ID" width="50"></el-table-column>
             <el-table-column prop="name" label="姓名" width="120"></el-table-column>
+            <el-table-column prop="sex" label="性别" width="60"></el-table-column>
+            <el-table-column prop="age" label="年龄" width="60"></el-table-column>
             <el-table-column prop="address" label="地址" show-overflow-tooltip></el-table-column>
           </el-table>
         </el-card>
-      </el-col>
-      <el-col :span="8">
+      </dd-col>
+      <dd-col :xl="6" :lg="12">
         <el-card class="box-card">
           <div slot="header" class="clearfix">
             <span>状态表格</span>
@@ -36,16 +38,44 @@
             <el-table-column type="selection" width="50"></el-table-column>
             <el-table-column prop="id" label="ID" width="50"></el-table-column>
             <el-table-column prop="name" label="姓名" width="120"></el-table-column>
-            <el-table-column prop="address" label="地址" show-overflow-tooltip></el-table-column>
+            <el-table-column prop="sex" label="性别" width="60"></el-table-column>
+            <el-table-column prop="age" label="年龄" width="60"></el-table-column>
+            <el-table-column prop="address" label="地址" width="200" show-overflow-tooltip></el-table-column>
           </el-table>
         </el-card>
-      </el-col>
+      </dd-col>
+      <dd-col :xl="6" :lg="12">
+        <el-card class="box-card">
+          <div slot="header" class="clearfix">
+            <span>固定列</span>
+          </div>
+          <el-table :data="tableData" style="width: 100%">
+            <el-table-column type="selection" width="50"></el-table-column>
+            <el-table-column prop="id" label="ID" width="50"></el-table-column>
+            <el-table-column prop="name" label="姓名" width="120"></el-table-column>
+            <el-table-column prop="sex" label="性别" width="60"></el-table-column>
+            <el-table-column prop="age" label="年龄" width="60"></el-table-column>
+            <el-table-column prop="address" label="地址" show-overflow-tooltip></el-table-column>
+            <el-table-column fixed="right" label="操作" width="100">
+              <template slot-scope="scope">
+                <el-button
+                  @click="handleClick(scope.row)"
+                  type="text"
+                  size="small"
+                  class="padding-0"
+                >查看</el-button>
+                <el-button type="text" size="small" class="padding-0">编辑</el-button>
+              </template>
+            </el-table-column>
+          </el-table>
+        </el-card>
+      </dd-col>
     </el-row>
 
     <el-divider content-position="left">数据表格</el-divider>
 
-    <el-row :gutter="30">
-      <el-col :span="17">
+    <el-row :gutter="20">
+      <dd-col :xl="12">
         <el-card class="box-card">
           <div slot="header" class="clearfix">
             <span>分页表格</span>
@@ -82,26 +112,26 @@
             :total="100"
           ></el-pagination>
         </el-card>
-      </el-col>
-      <el-col :span="7">
+      </dd-col>
+      <dd-col :xl="12">
         <el-card class="box-card">
           <div slot="header" class="clearfix">
             <span>树形表格</span>
           </div>
           <vxe-table border :data="tableData2" :tree-config="{children: 'children'}">
-            <vxe-table-column type="index" width="60" title="序号" tree-node></vxe-table-column>
-            <vxe-table-column field="name" title="名称" width="130"></vxe-table-column>
-            <vxe-table-column field="size" title="大小" width="60"></vxe-table-column>
+            <vxe-table-column type="index" width="100" title="序号"></vxe-table-column>
+            <vxe-table-column field="name" title="名称" width="150" tree-node></vxe-table-column>
+            <vxe-table-column field="size" title="大小" width="150"></vxe-table-column>
             <vxe-table-column field="date" title="日期"></vxe-table-column>
           </vxe-table>
         </el-card>
-      </el-col>
+      </dd-col>
     </el-row>
 
     <el-divider content-position="left">可编辑表格</el-divider>
 
     <el-row :gutter="30">
-      <el-col :span="12">
+      <dd-col :xl="12">
         <el-card class="box-card">
           <div slot="header" class="clearfix">
             <span>拖拽表格</span>
@@ -138,30 +168,48 @@
             <vxe-table-column field="address" title="地址" show-overflow></vxe-table-column>
           </vxe-table>
         </el-card>
-      </el-col>
-      <el-col :span="12">
+      </dd-col>
+      <dd-col :xl="12">
         <el-card class="box-card">
           <div slot="header" class="clearfix">
-            <span>分页样式二</span>
-            <el-radio-group
-              v-model="styleValue"
-              @change="styleChange"
-              style="float:right"
-              size="mini"
-            >
-              <el-radio label="false">无背景</el-radio>
-              <el-radio label="true">有背景</el-radio>
+            <span>可编辑表格</span>
+            <el-radio-group v-model="editType" style="float:right">
+              <el-radio label="row">行编辑</el-radio>
+              <el-radio label="cell">列编辑</el-radio>
             </el-radio-group>
           </div>
+          <vxe-table
+            border
+            resizable
+            show-overflow
+            :data="tableData"
+            :edit-config="{trigger: 'click', mode: editType}"
+            @edit-actived="editActivedEvent"
+            @edit-closed="editClosedEvent"
+            :key="editTypeChange"
+          >
+            <vxe-table-column field="id" title="ID" width="60"></vxe-table-column>
+            <vxe-table-column field="name" title="姓名" :edit-render="{name: 'input'}"></vxe-table-column>
+            <vxe-table-column
+              field="sex"
+              title="性别"
+              width="100"
+              :edit-render="{name: 'select', options: [{label:'男',value:'男'},{label:'女',value:'女'}],optionProps: {value: 'value', label: 'label'}}"
+            ></vxe-table-column>
+            <vxe-table-column field="age" title="年龄" width="100" :edit-render="{name: 'input'}"></vxe-table-column>
+            <vxe-table-column field="address" title="地址" :edit-render="{name: 'input'}"></vxe-table-column>
+          </vxe-table>
         </el-card>
-      </el-col>
+      </dd-col>
     </el-row>
   </div>
 </template>
 
 <script>
 import Sortable from "sortablejs";
+import DdCol from "@/components/dd-col";
 export default {
+  components: { DdCol },
   data() {
     return {
       pageBackground: false,
@@ -199,6 +247,7 @@ export default {
           address: "上海市普陀区金沙江路 1518 弄"
         }
       ],
+      editType: "row",
       tableData2: [
         {
           name: "资料",
@@ -214,7 +263,7 @@ export default {
             {
               name: "其他资料",
               size: "1G",
-              date: "2019-10-11 12:20:14",
+              date: "2019-10-11 12:20:14"
             }
           ]
         },
@@ -241,9 +290,15 @@ export default {
   },
   created() {
     this.rowDrop();
-    this.tableData2 = window.MOCK_TREE_DATA_LIST.slice(0);
   },
-  computed: {},
+  computed: {
+    editTypeChange(){
+      return this.editType
+    }
+  },
+  watch:{
+    
+  },
   methods: {
     tableRowClassName({ row, rowIndex }) {
       if (rowIndex === 1) {
@@ -327,6 +382,12 @@ export default {
           }
         );
       });
+    },
+    editActivedEvent({ row, column }, event) {
+      console.log(`打开 ${column.title} 列编辑`);
+    },
+    editClosedEvent({ row, column }, event) {
+      console.log(`关闭 ${column.title} 列编辑`);
     }
   }
 };

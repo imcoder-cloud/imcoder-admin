@@ -43,6 +43,13 @@ li {
 .mb30 {
   margin-bottom: 30px;
 }
+.flex-wrap {
+  display: flex;
+  flex-wrap: wrap;
+}
+.padding-0 {
+  padding: 0 !important;
+}
 
 /* font awesome 菜单中图标样式*/
 .el-menu-item .fa,

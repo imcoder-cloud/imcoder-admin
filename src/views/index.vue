@@ -10,8 +10,8 @@
       </slot>
     </el-alert>
 
-    <el-row :gutter="30">
-      <el-col :span="6">
+    <el-row :gutter="30" class="flex-wrap">
+      <dd-col :md="6">
         <el-card>
           <div class="tj-card">
             <i class="fa fa-paper-plane fa-3x color-ll"></i>
@@ -21,8 +21,8 @@
             </div>
           </div>
         </el-card>
-      </el-col>
-      <el-col :span="6">
+      </dd-col>
+      <dd-col :md="6">
         <el-card>
           <div class="tj-card">
             <i class="fa fa-users fa-3x color-yh"></i>
@@ -32,8 +32,8 @@
             </div>
           </div>
         </el-card>
-      </el-col>
-      <el-col :span="6">
+      </dd-col>
+      <dd-col :md="6">
         <el-card>
           <div class="tj-card">
             <i class="fa fa-shopping-bag fa-3x color-dd"></i>
@@ -43,8 +43,8 @@
             </div>
           </div>
         </el-card>
-      </el-col>
-      <el-col :span="6">
+      </dd-col>
+      <dd-col :md="6">
         <el-card>
           <div class="tj-card">
             <i class="fa fa-money fa-3x color-sr"></i>
@@ -54,40 +54,42 @@
             </div>
           </div>
         </el-card>
-      </el-col>
+      </dd-col>
     </el-row>
     <el-row :gutter="30" class="mt30">
-      <el-col :span="16">
+      <dd-col :span="16">
         <el-card>
           <div id="line_chart" style="height:400px;"></div>
         </el-card>
-      </el-col>
-      <el-col :span="8">
+      </dd-col>
+      <dd-col :span="8">
         <el-card>
           <div id="pie_chart" style="height:400px;"></div>
         </el-card>
-      </el-col>
+      </dd-col>
     </el-row>
     <el-row :gutter="30" class="mt30">
-      <el-col :span="12">
+      <dd-col :span="12">
         <el-card>
           <div id="histogram_chart" style="height:500px;"></div>
         </el-card>
-      </el-col>
-      <el-col :span="12">
+      </dd-col>
+      <dd-col :span="12">
         <el-card>
           <div id="china_chart" style="height:500px;"></div>
         </el-card>
-      </el-col>
+      </dd-col>
     </el-row>
   </div>
 </template>
 
 <script>
+import DdCol from "@/components/dd-col";
 import echarts from "echarts";
 import china from "echarts/map/json/china.json";
 echarts.registerMap("china", china);
 export default {
+   components: { DdCol },
   data() {
     return {};
   },
@@ -387,40 +389,40 @@ export default {
             geoIndex: 0,
             tooltip: { show: true },
             data: [
-              { name: "北京", value: this.randomData(500) },
-              { name: "天津", value: this.randomData(500) },
-              { name: "上海", value: this.randomData(500) },
-              { name: "重庆", value: this.randomData(500) },
-              { name: "河北", value: this.randomData(500) },
-              { name: "河南", value: this.randomData(500) },
-              { name: "云南", value: this.randomData(500) },
-              { name: "辽宁", value: this.randomData(500) },
-              { name: "黑龙江", value: this.randomData(500) },
-              { name: "湖南", value: this.randomData(500) },
-              { name: "安徽", value: this.randomData(500) },
-              { name: "山东", value: this.randomData(500) },
-              { name: "新疆", value: this.randomData(500) },
-              { name: "江苏", value: this.randomData(500) },
-              { name: "浙江", value: this.randomData(500) },
-              { name: "江西", value: this.randomData(500) },
-              { name: "湖北", value: this.randomData(500) },
-              { name: "广西", value: this.randomData(500) },
-              { name: "甘肃", value: this.randomData(500) },
-              { name: "山西", value: this.randomData(500) },
-              { name: "内蒙古", value: this.randomData(500) },
-              { name: "陕西", value: this.randomData(500) },
-              { name: "吉林", value: this.randomData(500) },
-              { name: "福建", value: this.randomData(500) },
-              { name: "贵州", value: this.randomData(500) },
-              { name: "广东", value: this.randomData(500) },
-              { name: "青海", value: this.randomData(500) },
-              { name: "西藏", value: this.randomData(500) },
-              { name: "四川", value: this.randomData(500) },
-              { name: "宁夏", value: this.randomData(500) },
-              { name: "海南", value: this.randomData(500) },
-              { name: "台湾", value: this.randomData(500) },
-              { name: "香港", value: this.randomData(500) },
-              { name: "澳门", value: this.randomData(500) }
+              { name: "北京", value: this.randomdata(500) },
+              { name: "天津", value: this.randomdata(500) },
+              { name: "上海", value: this.randomdata(500) },
+              { name: "重庆", value: this.randomdata(500) },
+              { name: "河北", value: this.randomdata(500) },
+              { name: "河南", value: this.randomdata(500) },
+              { name: "云南", value: this.randomdata(500) },
+              { name: "辽宁", value: this.randomdata(500) },
+              { name: "黑龙江", value: this.randomdata(500) },
+              { name: "湖南", value: this.randomdata(500) },
+              { name: "安徽", value: this.randomdata(500) },
+              { name: "山东", value: this.randomdata(500) },
+              { name: "新疆", value: this.randomdata(500) },
+              { name: "江苏", value: this.randomdata(500) },
+              { name: "浙江", value: this.randomdata(500) },
+              { name: "江西", value: this.randomdata(500) },
+              { name: "湖北", value: this.randomdata(500) },
+              { name: "广西", value: this.randomdata(500) },
+              { name: "甘肃", value: this.randomdata(500) },
+              { name: "山西", value: this.randomdata(500) },
+              { name: "内蒙古", value: this.randomdata(500) },
+              { name: "陕西", value: this.randomdata(500) },
+              { name: "吉林", value: this.randomdata(500) },
+              { name: "福建", value: this.randomdata(500) },
+              { name: "贵州", value: this.randomdata(500) },
+              { name: "广东", value: this.randomdata(500) },
+              { name: "青海", value: this.randomdata(500) },
+              { name: "西藏", value: this.randomdata(500) },
+              { name: "四川", value: this.randomdata(500) },
+              { name: "宁夏", value: this.randomdata(500) },
+              { name: "海南", value: this.randomdata(500) },
+              { name: "台湾", value: this.randomdata(500) },
+              { name: "香港", value: this.randomdata(500) },
+              { name: "澳门", value: this.randomdata(500) }
             ]
           }
         ]
@@ -430,7 +432,7 @@ export default {
         myChart.resize();
       });
     },
-    randomData: function(num) {
+    randomdata: function(num) {
       return Math.round(Math.random() * num);
     }
   }
