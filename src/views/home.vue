@@ -23,7 +23,7 @@ import { mapGetters } from "vuex";
 import MenuBar from "./components/menu-bar";
 import NavBar from "./components/nav-bar";
 import ViewsBar from "./components/views-bar";
-import Settings from "./components/settings";
+import Settings from "./settings";
 export default {
   components: {
     MenuBar,

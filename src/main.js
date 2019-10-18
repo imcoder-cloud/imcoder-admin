@@ -9,11 +9,15 @@ import 'element-ui/lib/theme-chalk/index.css'
 import 'font-awesome/css/font-awesome.css'
 import store from '@/store'
 import echarts from 'echarts'
+import 'xe-utils'
+import VXETable from 'vxe-table'
+import 'vxe-table/lib/index.css'
 
 Vue.config.productionTip = false
 
 Vue.use(ElementUI)
 Vue.use(echarts)
+Vue.use(VXETable)
 
 /* eslint-disable no-new */
 new Vue({

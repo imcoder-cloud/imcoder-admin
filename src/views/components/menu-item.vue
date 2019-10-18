@@ -1,12 +1,12 @@
 <template>
   <div>
     <template v-if="canBeLeafMenu(menu)">
-      <app-link :isExternal="leafMenu.isExternal" :path="resolvePath(leafMenu)">
+      <menu-link :isExternal="leafMenu.isExternal" :path="resolvePath(leafMenu)">
         <el-menu-item :index="resolvePath(leafMenu)">
           <i :class="leafMenu.icon"></i>
           <span slot="title">{{leafMenu.name}}</span>
         </el-menu-item>
-      </app-link>
+      </menu-link>
     </template>
     <el-submenu v-else :index="resolvePath(menu)">
       <template slot="title">
@@ -25,11 +25,11 @@
 
 <script>
 import path from "path";
-import AppLink from "./link";
+import MenuLink from "./menu-link";
 export default {
   name: "MenuItem",
   components: {
-    AppLink
+    MenuLink
   },
   props: {
     menu: {

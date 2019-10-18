@@ -29,27 +29,27 @@ const user = {
     },
     {
       id: 2,
-      path: '/component',
-      name: '组件管理',
+      path: '/basic',
+      name: '基础组件',
       icon: 'fa fa-cogs',
       parentId: 0,
       component: 'home',
       children: [
         {
           id: 3,
-          path: 'query',
-          name: '用户查询',
-          icon: 'el-icon-menu',
+          path: 'table',
+          name: '表格',
+          icon: 'fa fa-table',
           parentId: 2,
-          component: 'user/user'
+          component: 'basic/table'
         },
         {
           id: 4,
-          path: 'add',
-          name: '用户新增',
-          icon: 'el-icon-menu',
+          path: 'form',
+          name: '表单',
+          icon: 'fa fa-wpforms',
           parentId: 2,
-          component: 'user/user1'
+          component: 'basic/form'
         }
       ]
     },
