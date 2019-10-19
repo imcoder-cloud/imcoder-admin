@@ -35,9 +35,9 @@ const viewsBar = {
 
     DEL_OTHERS_VISITED_VIEWS: (state, view) => {
       let views = state.keepViewsByRefresh ? JSON.parse(localStorage.getItem('visitedViews') || '[]') : state.visitedViews
-      const fixedTags = views.filter(tag => tag.meta.affix)
+      const fixedTags = views.filter(tag => tag.fixed)
       for (const [i, v] of views.entries()) {
-        if (v.path === view.path && !view.meta.affix) {
+        if (v.path === view.path && !view.fixed) {
           views = views.slice(i, i + 1)
           views = [...fixedTags, ...views]
           state.visitedViews = views
@@ -48,7 +48,7 @@ const viewsBar = {
     },
 
     DEL_ALL_VISITED_VIEWS: state => {
-      const fixedTags = state.visitedViews.filter(tag => tag.meta.affix)
+      const fixedTags = state.visitedViews.filter(tag => tag.fixed)
       state.visitedViews = fixedTags
       localStorage.setItem('visitedViews', JSON.stringify(fixedTags))
     },

@@ -7,24 +7,19 @@
         class="scroll-container"
         @wheel.native.prevent="handleScroll"
       >
-        <router-link
+        <el-tag
           v-for="tag in visitedViews"
           ref="tag"
-          :class="isActive(tag)?'active':''"
-          :to="{ path: tag.path, query: tag.query, fullPath: tag.fullPath ,fixed:tag.fixed}"
+          :type="isActive(tag)?'':'info'"
           :key="tag.path"
-          tag="span"
-          class="tags-view-item"
-          @click.middle.native="closeSelectedTag(tag)"
+          :closable="!tag.fixed"
+          size="medium"
+          class="view-item"
+          :data-path="tag.path"
+          @close="closeTag(tag.path)"
+          @click="clickTag(tag.path)"
           @contextmenu.prevent.native="openMenu(tag,$event)"
-        >
-          {{ tag.name }}
-          <span
-            v-if="!tag.fixed"
-            class="el-icon-close"
-            @click.prevent.stop="closeSelectedTag(tag)"
-          />
-        </router-link>
+        >{{ tag.name }}</el-tag>
       </el-scrollbar>
 
       <ul v-show="visible" :style="{left:left+'px',top:top+'px'}" class="contextmenu">
@@ -36,12 +31,7 @@
     </div>
 
     <div class="tab-views" v-if="type=='tab'">
-      <el-tabs
-        type="card"
-        v-model="this.$route.path"
-        @tab-click="tabClick"
-        @tab-remove="removeView"
-      >
+      <el-tabs type="card" v-model="currentViews" @tab-click="tabClick" @tab-remove="removeView">
         <el-tab-pane
           ref="tag"
           v-for="tag in visitedViews"
@@ -49,7 +39,7 @@
           :key="tag.name"
           :label="tag.name"
           :closable="!tag.fixed"
-          :name="tag.path"
+          :name="tag.name"
           @contextmenu.prevent.native="openMenu(tag,$event)"
         ></el-tab-pane>
       </el-tabs>
@@ -67,7 +57,6 @@ const tagAndTagSpacing = 4;
 export default {
   props: {
     type: {
-      // type: "String",
       default: "tab"
     }
   },
@@ -77,7 +66,8 @@ export default {
       top: 0,
       left: 0,
       fixedTags: [],
-      selectedTag: {}
+      selectedTag: {},
+      currentViews: this.$route.name
     };
   },
   computed: {
@@ -87,6 +77,7 @@ export default {
   },
   watch: {
     $route() {
+      this.currentViews = this.$route.name;
       this.addViewTags();
       if (this.type == "tag") {
         this.moveToCurrentTag();
@@ -131,11 +122,9 @@ export default {
     },
     initTags() {
       const fixedTags = (this.fixedTags = this.filterFixedViews(
-        // routerMap.options.routes
         Auth.getDynamicRouters()
       ));
       for (const tag of fixedTags) {
-        // Must have tag name
         if (tag.name) {
           this.$store.dispatch("addVisitedView", tag);
         }
@@ -152,14 +141,13 @@ export default {
       const tags = this.$refs.tag;
       this.$nextTick(() => {
         for (const tag of tags) {
-          if (tag.to.path === this.$route.path) {
+          if (tag.$el.dataset.path === this.$route.path) {
             this.moveToTarget(tag);
 
             // when query is different then update
-            if (tag.to.fullPath !== this.$route.fullPath) {
+            if (tag.fullPath !== this.$route.fullPath) {
               this.$store.dispatch("updateVisitedView", this.$route);
             }
-
             break;
           }
         }
@@ -167,14 +155,28 @@ export default {
     },
     refreshSelectedTag(view) {
       const { fullPath } = view;
-      this.$router.replace({ path: fullPath });
+      if (fullPath == this.$route.fullPath) {
+        this.$router.replace("/");
+        this.$router.replace(fullPath);
+        return;
+      }
+      this.$router.replace(fullPath);
+    },
+    closeTag(path) {
+      let views = this.visitedViews.filter(view => view.path == path)[0];
+      this.closeSelectedTag(views);
+    },
+    clickTag(path) {
+      if (this.$route.path != path) {
+        this.$router.push(path);
+      }
     },
     closeSelectedTag(view) {
       this.$store.dispatch("delView", view).then(({ visitedViews }) => {
         if (this.isActive(view)) {
           const latestView = visitedViews.slice(-1)[0];
           if (latestView) {
-            this.$router.push(latestView);
+            this.$router.push(latestView.path);
           } else {
             this.$router.push("/");
           }
@@ -292,15 +294,14 @@ export default {
       }
     },
     tabClick: function(tab) {
-      // this.selectedTag = tab;
       const path = tab.$el.dataset.path;
       if (this.$route.path != path) {
         this.$router.push(path);
         console.log(path);
       }
     },
-    removeView: function(path) {
-      let views = this.visitedViews.filter(view => view.path == path)[0];
+    removeView: function(name) {
+      let views = this.visitedViews.filter(view => view.name == name)[0];
       this.closeSelectedTag(views);
     }
   }
@@ -316,20 +317,10 @@ export default {
   box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.12), 0 0 3px 0 rgba(0, 0, 0, 0.04);
   margin-top: -1px;
   .scroll-container {
-    .tags-view-item {
-      display: inline-block;
-      position: relative;
+    .view-item {
       cursor: pointer;
-      height: 26px;
-      line-height: 26px;
-      border: 1px solid #d8dce5;
-      color: #495060;
-      background: #fff;
-      padding: 0 8px;
-      font-size: 12px;
       margin-left: 5px;
       margin-top: 4px;
-      border-radius: 3px;
       &:first-of-type {
         margin-left: 15px;
       }
@@ -340,21 +331,11 @@ export default {
         background-color: rgb(236, 245, 255);
         border-color: rgb(217, 236, 255);
       }
-      &.active {
-        background-color: #409eff;
-        color: #fff;
-        border-color: #409eff;
-        &::before {
-          content: "";
-          background: #fff;
-          display: inline-block;
-          width: 8px;
-          height: 8px;
-          border-radius: 50%;
-          position: relative;
-          margin-right: 2px;
-        }
-      }
+      // &.active {
+      //   background-color: #409eff;
+      //   color: #fff;
+      //   border-color: #409eff;
+      // }
     }
   }
   .contextmenu {
@@ -382,22 +363,21 @@ export default {
 </style>
 
 <style rel="stylesheet/scss" lang="scss">
-//reset element css of el-icon-close
 .scroll-container {
-  .tags-view-item {
+  .view-item {
     .el-icon-close {
-      width: 16px;
-      height: 16px;
-      vertical-align: 2px;
-      border-radius: 50%;
-      text-align: center;
-      transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
-      transform-origin: 100% 50%;
-      &:before {
-        transform: scale(0.6);
-        display: inline-block;
-        vertical-align: -3px;
-      }
+      //   width: 16px;
+      //   height: 16px;
+      //   vertical-align: 2px;
+      //   border-radius: 50%;
+      //   text-align: center;
+      //   transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+      //   transform-origin: 100% 50%;
+      //   &:before {
+      //     transform: scale(0.6);
+      //     display: inline-block;
+      //     vertical-align: -3px;
+      //   }
       &:hover {
         background-color: #f56c6c;
         color: #fff;
@@ -443,7 +423,7 @@ export default {
     .el-tabs__item.is-active {
       background-color: #f1f1f1;
       height: 35px;
-      border-top: 2px solid #409eff ;
+      border-top: 2px solid #409eff;
     }
     .el-tabs__nav-next,
     .el-tabs__nav-prev {
