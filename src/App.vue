@@ -37,6 +37,12 @@ li {
 .full-height {
   height: 100%;
 }
+.mt20 {
+  margin-top: 20px;
+}
+.mb20 {
+  margin-bottom: 20px;
+}
 .mt30 {
   margin-top: 30px;
 }

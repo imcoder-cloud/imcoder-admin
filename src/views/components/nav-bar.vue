@@ -141,7 +141,7 @@ export default {
   align-items: center;
   height: 50px;
   padding: 0 20px;
-  border-bottom: 1px solid #ebeef5;
+  border-bottom: 1px solid #f5f5f5;
   .toggle-btn {
     background: none;
     border: none;

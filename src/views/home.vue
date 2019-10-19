@@ -6,7 +6,7 @@
     <el-container class="full-height">
       <el-header class="top-header">
         <nav-bar />
-        <views-bar v-if="showViewsBar"/>
+        <views-bar v-if="showViewsBar" :type="getViewBarType" />
       </el-header>
       <el-scrollbar class="full-height">
         <div class="full-height main">
@@ -41,6 +41,9 @@ export default {
     },
     showViewsBar() {
       return this.settings.showViewsBar;
+    },
+    getViewBarType() {
+      return this.settings.viewBarType;
     }
   }
 };

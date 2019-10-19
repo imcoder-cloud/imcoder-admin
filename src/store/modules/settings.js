@@ -4,6 +4,7 @@ const settings = {
     settings: {
       openSetting: commonUtil.getSettingStorage('openSetting'),
       showViewsBar: commonUtil.getSettingStorage('showViewsBar'),
+      viewBarType: localStorage.getItem('viewBarType') || 'tab',
       keepViewsByRefresh: commonUtil.getSettingStorage('keepViewsByRefresh'),
       collapseMenu: commonUtil.getSettingStorage('collapseMenu'),
       uniqueOpened: commonUtil.getSettingStorage('uniqueOpened'),

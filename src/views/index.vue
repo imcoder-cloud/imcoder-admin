@@ -4,14 +4,14 @@
       <slot>
         本后台模板为静态模板，所有数据均为测试数据，均未与后台交互。如果此模板能够帮助您，烦请给本项目点个 star 谢谢。<br />
         github 地址：
-        <a href="https://github.com/dongdong-cloud/dd-admin-web" target="_blank">https://github.com/dongdong-cloud/dd-admin-web</a> &nbsp;&nbsp;&nbsp;
+        <a href="https://github.com/dongdong-cloud/el-admin-web" target="_blank">https://github.com/dongdong-cloud/el-admin-web</a> &nbsp;&nbsp;&nbsp;
         码云地址：
-        <a href="https://gitee.com/dongdong-cloud/dd-admin-web" target="_blank">https://gitee.com/dongdong-cloud/dd-admin-web</a>
+        <a href="https://gitee.com/dongdong-cloud/el-admin-web" target="_blank">https://gitee.com/dongdong-cloud/el-admin-web</a>
       </slot>
     </el-alert>
 
-    <el-row :gutter="30" class="flex-wrap">
-      <dd-col :md="6">
+    <el-row :gutter="20" class="flex-wrap">
+      <el-col :sm="12" :md="6" class="mb20">
         <el-card>
           <div class="tj-card">
             <i class="fa fa-paper-plane fa-3x color-ll"></i>
@@ -21,8 +21,8 @@
             </div>
           </div>
         </el-card>
-      </dd-col>
-      <dd-col :md="6">
+      </el-col>
+      <el-col :sm="12" :md="6" class="mb20">
         <el-card>
           <div class="tj-card">
             <i class="fa fa-users fa-3x color-yh"></i>
@@ -32,19 +32,19 @@
             </div>
           </div>
         </el-card>
-      </dd-col>
-      <dd-col :md="6">
+      </el-col>
+      <el-col :sm="12" :md="6" class="mb20">
         <el-card>
           <div class="tj-card">
-            <i class="fa fa-shopping-bag fa-3x color-dd"></i>
+            <i class="fa fa-shopping-bag fa-3x color-el"></i>
             <div class="item">
               <div class="item-title">今日订单</div>
               <div class="item-desc">273</div>
             </div>
           </div>
         </el-card>
-      </dd-col>
-      <dd-col :md="6">
+      </el-col>
+      <el-col :sm="12" :md="6" class="mb20">
         <el-card>
           <div class="tj-card">
             <i class="fa fa-money fa-3x color-sr"></i>
@@ -54,42 +54,42 @@
             </div>
           </div>
         </el-card>
-      </dd-col>
+      </el-col>
     </el-row>
-    <el-row :gutter="30" class="mt30">
-      <dd-col :span="16">
+    <el-row :gutter="20">
+      <el-col :lg="12" :xl="16" class="mb20">
         <el-card>
           <div id="line_chart" style="height:400px;"></div>
         </el-card>
-      </dd-col>
-      <dd-col :span="8">
+      </el-col>
+      <el-col :lg="12" :xl="8" class="mb20">
         <el-card>
           <div id="pie_chart" style="height:400px;"></div>
         </el-card>
-      </dd-col>
+      </el-col>
     </el-row>
-    <el-row :gutter="30" class="mt30">
-      <dd-col :span="12">
+    <el-row :gutter="30">
+      <el-col :xl="12" class="mb20">
         <el-card>
           <div id="histogram_chart" style="height:500px;"></div>
         </el-card>
-      </dd-col>
-      <dd-col :span="12">
+      </el-col>
+      <el-col :xl="12" class="mb20">
         <el-card>
           <div id="china_chart" style="height:500px;"></div>
         </el-card>
-      </dd-col>
+      </el-col>
     </el-row>
   </div>
 </template>
 
 <script>
-import DdCol from "@/components/dd-col";
+// import elCol from "@/components/el-col";
 import echarts from "echarts";
 import china from "echarts/map/json/china.json";
 echarts.registerMap("china", china);
 export default {
-   components: { DdCol },
+  //  components: { elCol },
   data() {
     return {};
   },
@@ -329,7 +329,7 @@ export default {
           text: ["High", "Low"],
           seriesIndex: [1],
           inRange: {
-            color: ["#e0ffff", "#006edd"]
+            color: ["#e0ffff", "#006eel"]
           },
           calculable: true
         },
@@ -456,7 +456,7 @@ export default {
   .color-yh {
     color: #d633ad;
   }
-  .color-dd {
+  .color-el {
     color: #d65e0e;
   }
   .color-sr {

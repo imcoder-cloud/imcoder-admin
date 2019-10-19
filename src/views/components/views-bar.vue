@@ -1,37 +1,59 @@
 <template>
-  <div class="views-container">
-    <el-scrollbar
-      ref="scrollContainer"
-      :vertical="false"
-      class="scroll-container"
-      @wheel.native.prevent="handleScroll"
-    >
-      <router-link
-        v-for="tag in visitedViews"
-        ref="tag"
-        :class="isActive(tag)?'active':''"
-        :to="{ path: tag.path, query: tag.query, fullPath: tag.fullPath ,fixed:tag.fixed}"
-        :key="tag.path"
-        tag="span"
-        class="tags-view-item"
-        @click.middle.native="closeSelectedTag(tag)"
-        @contextmenu.prevent.native="openMenu(tag,$event)"
+  <div>
+    <div class="views-container" v-if="type=='tag'">
+      <el-scrollbar
+        ref="scrollContainer"
+        :vertical="false"
+        class="scroll-container"
+        @wheel.native.prevent="handleScroll"
       >
-        {{ tag.name }}
-        <span
-          v-if="!tag.fixed"
-          class="el-icon-close"
-          @click.prevent.stop="closeSelectedTag(tag)"
-        />
-      </router-link>
-    </el-scrollbar>
+        <router-link
+          v-for="tag in visitedViews"
+          ref="tag"
+          :class="isActive(tag)?'active':''"
+          :to="{ path: tag.path, query: tag.query, fullPath: tag.fullPath ,fixed:tag.fixed}"
+          :key="tag.path"
+          tag="span"
+          class="tags-view-item"
+          @click.middle.native="closeSelectedTag(tag)"
+          @contextmenu.prevent.native="openMenu(tag,$event)"
+        >
+          {{ tag.name }}
+          <span
+            v-if="!tag.fixed"
+            class="el-icon-close"
+            @click.prevent.stop="closeSelectedTag(tag)"
+          />
+        </router-link>
+      </el-scrollbar>
 
-    <ul v-show="visible" :style="{left:left+'px',top:top+'px'}" class="contextmenu">
-      <li @click="refreshSelectedTag(selectedTag)">刷新</li>
-      <li v-if="!(selectedTag.fixed)" @click="closeSelectedTag(selectedTag)">关闭</li>
-      <li @click="closeOthersTags">关闭其他</li>
-      <li @click="closeAllTags(selectedTag)">关闭所有</li>
-    </ul>
+      <ul v-show="visible" :style="{left:left+'px',top:top+'px'}" class="contextmenu">
+        <li @click="refreshSelectedTag(selectedTag)">刷新</li>
+        <li v-if="!(selectedTag.fixed)" @click="closeSelectedTag(selectedTag)">关闭</li>
+        <li @click="closeOthersTags">关闭其他</li>
+        <li @click="closeAllTags(selectedTag)">关闭所有</li>
+      </ul>
+    </div>
+
+    <div class="tab-views" v-if="type=='tab'">
+      <el-tabs
+        type="card"
+        v-model="this.$route.path"
+        @tab-click="tabClick"
+        @tab-remove="removeView"
+      >
+        <el-tab-pane
+          ref="tag"
+          v-for="tag in visitedViews"
+          :data-path="tag.path"
+          :key="tag.name"
+          :label="tag.name"
+          :closable="!tag.fixed"
+          :name="tag.path"
+          @contextmenu.prevent.native="openMenu(tag,$event)"
+        ></el-tab-pane>
+      </el-tabs>
+    </div>
   </div>
 </template>
 
@@ -43,6 +65,12 @@ import Auth from "@/auth";
 const tagAndTagSpacing = 4;
 
 export default {
+  props: {
+    type: {
+      // type: "String",
+      default: "tab"
+    }
+  },
   data() {
     return {
       visible: false,
@@ -60,7 +88,9 @@ export default {
   watch: {
     $route() {
       this.addViewTags();
-      this.moveToCurrentTag();
+      if (this.type == "tag") {
+        this.moveToCurrentTag();
+      }
     },
     visible(value) {
       if (value) {
@@ -260,6 +290,18 @@ export default {
           $scrollWrapper.scrollLeft = beforePrevTagOffsetLeft;
         }
       }
+    },
+    tabClick: function(tab) {
+      // this.selectedTag = tab;
+      const path = tab.$el.dataset.path;
+      if (this.$route.path != path) {
+        this.$router.push(path);
+        console.log(path);
+      }
+    },
+    removeView: function(path) {
+      let views = this.visitedViews.filter(view => view.path == path)[0];
+      this.closeSelectedTag(views);
     }
   }
 };
@@ -375,6 +417,44 @@ export default {
     }
     .el-scrollbar__wrap {
       height: 49px;
+    }
+  }
+}
+
+.tab-views {
+  .el-tabs--card > .el-tabs__header {
+    border-bottom: 1px solid #f1f1f1;
+    .el-tabs__nav {
+      border: none !important;
+    }
+  }
+  .el-tabs__header {
+    margin: 0 !important;
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.12), 0 0 3px 0 rgba(0, 0, 0, 0.04);
+    .el-tabs__item {
+      height: 34px;
+      line-height: 34px;
+      font-size: 12px;
+      border: none;
+      .el-icon-close:hover {
+        background-color: #f56c6c;
+      }
+    }
+    .el-tabs__item.is-active {
+      background-color: #f1f1f1;
+      height: 35px;
+      border-top: 2px solid #409eff ;
+    }
+    .el-tabs__nav-next,
+    .el-tabs__nav-prev {
+      line-height: 35px;
+      color: #409eff;
+    }
+    .el-tabs__nav-prev {
+      border-right: 1px solid #f1f1f1;
+    }
+    .el-tabs__nav-next {
+      border-left: 1px solid #f1f1f1;
     }
   }
 }

@@ -2,7 +2,7 @@
   <div>
     <el-divider content-position="left">基础表格</el-divider>
     <el-row class="flex-wrap" :gutter="20">
-      <dd-col :xl="6" :lg="12">
+      <el-col :xl="12" class="mb20">
         <el-card class="box-card">
           <div slot="header" class="clearfix">
             <span>一般表格</span>
@@ -13,8 +13,8 @@
             <el-table-column prop="address" label="地址" show-overflow-tooltip></el-table-column>
           </el-table>
         </el-card>
-      </dd-col>
-      <dd-col :xl="6" :lg="12">
+      </el-col>
+      <el-col :xl="12" class="mb20">
         <el-card class="box-card">
           <div slot="header" class="clearfix">
             <span>条纹表格</span>
@@ -28,8 +28,8 @@
             <el-table-column prop="address" label="地址" show-overflow-tooltip></el-table-column>
           </el-table>
         </el-card>
-      </dd-col>
-      <dd-col :xl="6" :lg="12">
+      </el-col>
+      <el-col :xl="12" class="mb20">
         <el-card class="box-card">
           <div slot="header" class="clearfix">
             <span>状态表格</span>
@@ -43,8 +43,8 @@
             <el-table-column prop="address" label="地址" width="200" show-overflow-tooltip></el-table-column>
           </el-table>
         </el-card>
-      </dd-col>
-      <dd-col :xl="6" :lg="12">
+      </el-col>
+      <el-col :xl="12" class="mb20">
         <el-card class="box-card">
           <div slot="header" class="clearfix">
             <span>固定列</span>
@@ -69,13 +69,13 @@
             </el-table-column>
           </el-table>
         </el-card>
-      </dd-col>
+      </el-col>
     </el-row>
 
     <el-divider content-position="left">数据表格</el-divider>
 
     <el-row :gutter="20">
-      <dd-col :xl="12">
+      <el-col class="mb20">
         <el-card class="box-card">
           <div slot="header" class="clearfix">
             <span>分页表格</span>
@@ -84,7 +84,11 @@
                 <el-radio label="false">无背景</el-radio>
                 <el-radio label="true">有背景</el-radio>
               </el-radio-group>
-              <el-checkbox-group v-model="pageOptions" style="margin-left: 35px;">
+              <el-checkbox-group
+                v-model="pageOptions"
+                @change="pageOptionsChange"
+                style="margin-left: 35px;"
+              >
                 <el-checkbox label="total">总数</el-checkbox>
                 <el-checkbox label="sizes">每页大小</el-checkbox>
                 <el-checkbox label="prev">上一页</el-checkbox>
@@ -108,12 +112,12 @@
             :current-page="1"
             :page-sizes="[10, 20, 30, 40, 50]"
             :page-size="10"
-            :layout="pageOptions.join(',')"
+            :layout="optionsArr.join(',')"
             :total="100"
           ></el-pagination>
         </el-card>
-      </dd-col>
-      <dd-col :xl="12">
+      </el-col>
+      <el-col class="mb20">
         <el-card class="box-card">
           <div slot="header" class="clearfix">
             <span>树形表格</span>
@@ -125,13 +129,13 @@
             <vxe-table-column field="date" title="日期"></vxe-table-column>
           </vxe-table>
         </el-card>
-      </dd-col>
+      </el-col>
     </el-row>
 
     <el-divider content-position="left">可编辑表格</el-divider>
 
     <el-row :gutter="30">
-      <dd-col :xl="12">
+      <el-col :xl="12">
         <el-card class="box-card">
           <div slot="header" class="clearfix">
             <span>拖拽表格</span>
@@ -168,8 +172,8 @@
             <vxe-table-column field="address" title="地址" show-overflow></vxe-table-column>
           </vxe-table>
         </el-card>
-      </dd-col>
-      <dd-col :xl="12">
+      </el-col>
+      <el-col :xl="12">
         <el-card class="box-card">
           <div slot="header" class="clearfix">
             <span>可编辑表格</span>
@@ -200,20 +204,19 @@
             <vxe-table-column field="address" title="地址" :edit-render="{name: 'input'}"></vxe-table-column>
           </vxe-table>
         </el-card>
-      </dd-col>
+      </el-col>
     </el-row>
   </div>
 </template>
 
 <script>
 import Sortable from "sortablejs";
-import DdCol from "@/components/dd-col";
 export default {
-  components: { DdCol },
   data() {
     return {
       pageBackground: false,
       styleValue: "false",
+      optionsArr: ["total", "prev", "pager", "next"],
       pageOptions: ["total", "prev", "pager", "next"],
       showHelpTip1: false,
       dropType: "row",
@@ -292,13 +295,11 @@ export default {
     this.rowDrop();
   },
   computed: {
-    editTypeChange(){
-      return this.editType
+    editTypeChange() {
+      return this.editType;
     }
   },
-  watch:{
-    
-  },
+  watch: {},
   methods: {
     tableRowClassName({ row, rowIndex }) {
       if (rowIndex === 1) {
@@ -316,6 +317,20 @@ export default {
     },
     styleChange: function(value) {
       this.pageBackground = value == "true";
+    },
+    pageOptionsChange: function(value) {
+      let arr = ['total','sizes','prev','pager','next','jumper']
+      let rtnArr = []
+      let temp = []
+      value.forEach(item => {
+        var index = arr.indexOf(item)
+        temp[index] = item
+      });
+      temp.forEach(item => {
+        rtnArr.push(item)
+      });
+      this.optionsArr = rtnArr;
+      console.log(rtnArr);
     },
     dropTypeChange(val) {
       if (val == "col") {
@@ -401,7 +416,7 @@ export default {
 .el-table .success-row {
   background: #f0f9eb;
 }
-.sortable-row-demo .drag-btn {
+.drag-btn {
   cursor: move;
   font-size: 12px;
 }

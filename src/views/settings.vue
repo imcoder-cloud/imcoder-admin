@@ -8,6 +8,13 @@
           <el-switch v-model="showViewsBar" class="setting-switch" />
         </div>
         <div class="setting-item">
+          <span>视图页签样式</span>
+          <el-radio-group v-model="viewBarType">
+            <el-radio label="tab">Tab</el-radio>
+            <el-radio label="tag">Tag</el-radio>
+          </el-radio-group>
+        </div>
+        <div class="setting-item">
           <span>刷新保留其他视图</span>
           <el-switch v-model="keepViewsByRefresh" class="setting-switch" />
         </div>
@@ -46,6 +53,17 @@ export default {
       set(value) {
         this.$store.dispatch("updateSettings", {
           key: "showViewsBar",
+          value: value
+        });
+      }
+    },
+    viewBarType: {
+      get() {
+        return this.settings.viewBarType;
+      },
+      set(value) {
+        this.$store.dispatch("updateSettings", {
+          key: "viewBarType",
           value: value
         });
       }
@@ -123,6 +141,9 @@ export default {
     color: rgba(0, 0, 0, 0.65);
     font-size: 14px;
     padding: 12px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
   }
 
   .setting-switch {
