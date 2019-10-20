@@ -33,7 +33,7 @@ export default {
         userName: "",
         password: ""
       },
-      rules: rules
+      rules: rules.loginRules
     };
   },
   methods: {

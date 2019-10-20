@@ -6,7 +6,7 @@ const viewsBar = {
   },
   mutations: {
     ADD_VISITED_VIEW: (state, view) => {
-      let views = state.keepViewsByRefresh ? JSON.parse(localStorage.getItem('visitedViews') || '[]') : state.visitedViews
+      let views = state.keepViewsByRefresh ? JSON.parse(sessionStorage.getItem('visitedViews') || '[]') : state.visitedViews
       if (views.some(v => v.path === view.path)) {
         state.visitedViews = views
         return
@@ -18,30 +18,30 @@ const viewsBar = {
       v.fixed = view.fixed
       views.push(v)
       state.visitedViews = views
-      localStorage.setItem('visitedViews', JSON.stringify(views))
+      sessionStorage.setItem('visitedViews', JSON.stringify(views))
     },
 
     DEL_VISITED_VIEW: (state, view) => {
-      let views = state.keepViewsByRefresh ? JSON.parse(localStorage.getItem('visitedViews') || '[]') : state.visitedViews
+      let views = state.keepViewsByRefresh ? JSON.parse(sessionStorage.getItem('visitedViews') || '[]') : state.visitedViews
       for (const [i, v] of views.entries()) {
         if (v.path === view.path) {
           views.splice(i, 1)
           state.visitedViews = views
-          localStorage.setItem('visitedViews', JSON.stringify(views))
+          sessionStorage.setItem('visitedViews', JSON.stringify(views))
           break
         }
       }
     },
 
     DEL_OTHERS_VISITED_VIEWS: (state, view) => {
-      let views = state.keepViewsByRefresh ? JSON.parse(localStorage.getItem('visitedViews') || '[]') : state.visitedViews
+      let views = state.keepViewsByRefresh ? JSON.parse(sessionStorage.getItem('visitedViews') || '[]') : state.visitedViews
       const fixedTags = views.filter(tag => tag.fixed)
       for (const [i, v] of views.entries()) {
         if (v.path === view.path && !view.fixed) {
           views = views.slice(i, i + 1)
           views = [...fixedTags, ...views]
           state.visitedViews = views
-          localStorage.setItem('visitedViews', JSON.stringify(views))
+          sessionStorage.setItem('visitedViews', JSON.stringify(views))
           break
         }
       }
@@ -50,7 +50,7 @@ const viewsBar = {
     DEL_ALL_VISITED_VIEWS: state => {
       const fixedTags = state.visitedViews.filter(tag => tag.fixed)
       state.visitedViews = fixedTags
-      localStorage.setItem('visitedViews', JSON.stringify(fixedTags))
+      sessionStorage.setItem('visitedViews', JSON.stringify(fixedTags))
     },
 
     UPDATE_VISITED_VIEW: (state, view) => {

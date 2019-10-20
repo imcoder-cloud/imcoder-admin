@@ -68,8 +68,13 @@ li {
 }
 
 /* element ui 样式重写 */
+/* 下拉框 */
+.el-select {
+  width: 100%;
+}
+
 /* 滚动条 */
-.el-scrollbar__wrap {
+.el-scrollbar__wrap:not(.el-select-dropdown__wrap) {
   overflow: scroll;
   overflow-x: hidden !important;
 }
