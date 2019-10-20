@@ -99,7 +99,7 @@ const user = {
           name: 'UEditor',
           icon: 'fa fa-pencil-square-o',
           parentId: 9,
-          component: 'basic/table'
+          component: 'editor/ueditor'
         },
         {
           id: 11,
