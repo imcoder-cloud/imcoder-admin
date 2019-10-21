@@ -102,4 +102,9 @@ li {
   visibility: hidden;
   display: inline-block;
 }
+
+/* 消息弹框 */
+.el-message-box__message p {
+  white-space: pre-wrap;
+}
 </style>

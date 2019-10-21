@@ -37,9 +37,9 @@ const user = {
           icon: 'fa fa-github',
           parentId: 2,
           component: 'index',
-          isExternal: true,
+          isExternal: true
         }
-      ],
+      ]
     },
     {
       id: 4,
@@ -107,7 +107,7 @@ const user = {
           name: '代码编辑器',
           icon: 'fa fa-code',
           parentId: 9,
-          component: 'basic/form'
+          component: 'editor/code'
         }
       ]
     },
