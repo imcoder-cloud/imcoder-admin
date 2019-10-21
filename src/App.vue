@@ -86,7 +86,7 @@ li {
   padding: 0;
 }
 .el-drawer {
-  width: 320px !important;
+  width: 375px !important;
 }
 
 /* 左侧导航栏 */

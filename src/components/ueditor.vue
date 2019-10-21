@@ -10,35 +10,54 @@ export default {
   name: "ueditor",
   data() {
     return {
-      editor: null
+      editor: null,
+      content: ""
     };
   },
   props: {
-    defaultMsg: {
-      type: String,
-      default: "请输入内容"
-    },
     config: {
       type: Object
     },
     id: {
       type: String,
       default: `ue${Math.random(0, 100)}`
+    },
+    value: {
+      type: String,
+      default: ""
     }
+  },
+  created() {
+    this.content = this.value;
   },
   mounted() {
     this.$nextTick(() => {
       this.editor = UE.getEditor(this.id, this.config); // 初始化UE
       this.editor.addListener("ready", () => {
-        this.editor.execCommand("insertHtml", this.defaultMsg);
+        this.editor.execCommand("insertHtml", this.content);
         this.editor.focus(); // 确保UE加载完成后，放入内容。
+      });
+      this.editor.addListener("contentChange", () => {
+        this.content = this.getContent();
+        this.$emit("input", this.content);
       });
     });
   },
   methods: {
+    // 获取内容
     getContent() {
-      // 获取内容方法
       return this.editor.getContent();
+    },
+    // 设置内容
+    setContent(html, isAppendTo) {
+      if (isAppendTo) {
+        return this.editor.setContent(html, isAppendTo);
+      }
+      return this.editor.setContent(html);
+    },
+    // 获取纯文本内容
+    getContentTxt() {
+      return this.editor.getContentTxt();
     },
     clearContent() {
       // 清空编辑器内容

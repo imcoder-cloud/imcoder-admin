@@ -10,8 +10,8 @@
         <div class="setting-item">
           <span>视图页签样式</span>
           <el-radio-group v-model="viewBarType">
-            <el-radio label="tab">Tab</el-radio>
-            <el-radio label="tag">Tag</el-radio>
+            <el-radio label="tab">选项卡</el-radio>
+            <el-radio label="tag">标签</el-radio>
           </el-radio-group>
         </div>
         <div class="setting-item">

@@ -69,7 +69,7 @@
               </el-radio-group>
             </el-form-item>
             <el-form-item label="活动人数" prop="count">
-              <el-input-number v-model="formObj.count"></el-input-number>
+              <el-input-number v-model="formObj.count" size="medium"></el-input-number>
             </el-form-item>
             <el-form-item label="活动形式" prop="desc">
               <el-input type="textarea" v-model="formObj.desc"></el-input>
@@ -149,7 +149,7 @@
               </el-col>
               <el-col :span="12">
                 <el-form-item label="活动人数" prop="count">
-                  <el-input-number v-model="formObj.count"></el-input-number>
+                  <el-input-number v-model="formObj.count" size="medium"></el-input-number>
                 </el-form-item>
               </el-col>
               <el-col :span="12">
