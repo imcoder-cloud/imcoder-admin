@@ -1,3 +1,3 @@
 <template>
-    <div>三级菜单2</div>
+    <el-alert title="温馨提示" type="success" description="这是三级菜单 2"></el-alert>
 </template>

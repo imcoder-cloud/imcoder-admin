@@ -124,7 +124,7 @@ const user = {
           name: 'Excel',
           icon: 'fa fa-file-excel-o',
           parentId: 12,
-          component: 'basic/table'
+          component: 'file/excel'
         },
         {
           id: 14,
@@ -260,19 +260,19 @@ const user = {
     },
     {
       id: 30,
-      path: '/link',
+      path: 'https://github.com/dongdong-cloud/vue-admin',
       name: '链接',
       icon: 'fa fa-link',
+      isExternal: true,
       parentId: 0,
-      component: 'home',
       children: [
         {
           id: 31,
-          path: 'external',
+          path: 'https://github.com/dongdong-cloud/vue-admin',
           name: '外部链接',
           icon: 'fa fa-external-link-square',
           parentId: 30,
-          component: 'link/external'
+          isExternal: true
         }
       ]
     }
