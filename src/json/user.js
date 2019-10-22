@@ -80,8 +80,7 @@ const user = {
           name: '字体图标',
           icon: 'fa fa-fonticons',
           parentId: 7,
-          component: 'icon/index',
-          meta: { fixed: true }
+          component: 'icon/index'
         }
       ]
     },
