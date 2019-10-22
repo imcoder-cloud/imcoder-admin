@@ -58,7 +58,7 @@ export default {
       content: "console.log('Hello Word!')",
       config: {
         theme: "vs-dark",
-        language: "java"
+        language: "javascript"
       }
     };
   },
