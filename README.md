@@ -55,11 +55,9 @@ dd-admin-web是一个前端解决方案，基于 vue 2 和 element-ui 2.12.0 开
   - Zip（开发中）
   - PDf（开发中）
 - 错误页面
-  - 401（开发中）
-  - 404（开发中）
-  - 500（开发中）
-  - 502（开发中）
-  - 504（开发中）
+  - 401页面
+  - 404页面
+  - 500页面
   
 ### 系统截图
 ![首页](./src/assets/1.jpg)
@@ -134,8 +132,8 @@ npm run build
 | IE11, Edge| last 2 versions| last 2 versions| last 2 versions| last 2 versions| last 2 versions
 
 ### 捐赠
-------
+---
 
 ### 其他
-------
+---
 本项目部分灵感来源于其他开源项目el-admin

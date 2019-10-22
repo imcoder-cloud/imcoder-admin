@@ -195,7 +195,7 @@ const user = {
           name: '401页面',
           icon: 'fa fa-table',
           parentId: 20,
-          component: 'basic/table'
+          component: 'error/401'
         },
         {
           id: 22,
@@ -203,23 +203,15 @@ const user = {
           name: '404页面',
           icon: 'fa fa-wpforms',
           parentId: 20,
-          component: 'basic/form'
+          component: 'error/404'
         },
         {
           id: 23,
-          path: '502',
-          name: '502页面',
+          path: '500',
+          name: '500页面',
           icon: 'fa fa-wpforms',
           parentId: 20,
-          component: 'basic/form'
-        },
-        {
-          id: 24,
-          path: '504',
-          name: '504页面',
-          icon: 'fa fa-wpforms',
-          parentId: 20,
-          component: 'basic/form'
+          component: 'error/500'
         }
       ]
     },
