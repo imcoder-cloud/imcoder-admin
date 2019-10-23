@@ -139,15 +139,15 @@ npm run build
 项目的创作离不开您的支持，如果你觉得此项目能够帮助到您，不如请作者喝杯咖啡吧。<br>
 <br>
 <div style="display:flex">
-  <div style="display:flex;flex-direction:column;align-items:center;">
+  <div style="display:flex;flex-direction:column;align-items:center;width:150px">
     <span>支付宝</span>
     <br>
-    <img src="./src/assets/zfb.jpg" style="width:200px">
+    <img src="./src/assets/zfb.jpg" style="width:100%;">
   </div>
-  <div style="display:flex;flex-direction:column;align-items:center;">
+  <div style="display:flex;flex-direction:column;align-items:center;width:150px;pxmargin-left:50px">
     <span>微信</span>
     <br>
-    <img src="./src/assets/wx.jpg" style="width:200px">
+    <img src="./src/assets/wx.jpg" style="width:100%;">
   </div>
 </div>
 
