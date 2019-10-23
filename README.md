@@ -18,6 +18,7 @@ dd-admin-web是一个前端解决方案，基于 vue 2 和 element-ui 2.12.0 开
 
 
 ### 功能简介
+-----
 
 - 登录 / 注销
 
@@ -51,15 +52,16 @@ dd-admin-web是一个前端解决方案，基于 vue 2 和 element-ui 2.12.0 开
   - ueditor
   - 代码编辑器
 - 文件操作
-  - Excel（开发中）
-  - Zip（开发中）
-  - PDf（开发中）
+  - Excel
+  - PDf
 - 错误页面
   - 401页面
   - 404页面
   - 500页面
   
 ### 系统截图
+-----
+
 ![首页](./src/assets/1.jpg)
 ![表格](./src/assets/2.jpg)
 ![表单](./src/assets/3.jpg)
@@ -68,6 +70,7 @@ dd-admin-web是一个前端解决方案，基于 vue 2 和 element-ui 2.12.0 开
 ![设置](./src/assets/6.jpg)
 
 ### 安装步骤
+-----
 
 ``` bash
 # 安装依赖
@@ -81,6 +84,7 @@ npm run build
 ```
 
 ### 目录结构
+-----
 
 ```
 ├── build                       // help
@@ -124,8 +128,7 @@ npm run build
 ```
 
 ### 浏览器兼容
-
-## Browsers support
+-----
 
 | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/edge/edge_48x48.png" alt="IE / Edge" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)<br>IE / Edge | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/firefox/firefox_48x48.png" alt="Firefox" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)<br>Firefox | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/chrome/chrome_48x48.png" alt="Chrome" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)<br>Chrome | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/safari/safari_48x48.png" alt="Safari" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)<br>Safari | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/safari-ios/safari-ios_48x48.png" alt="iOS Safari" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)<br>iOS Safari | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/opera/opera_48x48.png" alt="Opera" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)<br>Opera |
 | --------- | --------- | --------- | --------- | --------- | --------- |
@@ -133,6 +136,20 @@ npm run build
 
 ### 捐赠
 ---
+项目的创作离不开您的支持，如果你觉得此项目能够帮助到您，不如请作者喝杯咖啡吧。<br>
+<br>
+<div style="display:flex">
+  <div style="display:flex;flex-direction:column;align-items:center;">
+    <span>支付宝</span>
+    <br>
+    <img src="./src/assets/zfb.jpg" style="width:200px">
+  </div>
+  <div style="display:flex;flex-direction:column;align-items:center;">
+    <span>微信</span>
+    <br>
+    <img src="./src/assets/wx.jpg" style="width:200px">
+  </div>
+</div>
 
 ### 其他
 ---

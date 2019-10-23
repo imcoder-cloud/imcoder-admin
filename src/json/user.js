@@ -127,14 +127,6 @@ const user = {
           component: 'file/excel'
         },
         {
-          id: 14,
-          path: 'zip',
-          name: 'Zip',
-          icon: 'fa fa-file-archive-o',
-          parentId: 12,
-          component: 'basic/form'
-        },
-        {
           id: 15,
           path: 'pdf',
           name: 'PDF',

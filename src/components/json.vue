@@ -309,19 +309,16 @@ pre {
   font-family: "consolas";
 }
 .object-brace {
-  color: #00aa00;
-  font-weight: bold;
+  color: #3b3b3b;
 }
 .array-brace {
-  color: #0033ff;
-  font-weight: bold;
+  color: #3b3b3b;
 }
 .property-name {
-  color: #cc0000;
-  font-weight: bold;
+  color: #d61818;
 }
 .string {
-  color: #007777;
+  color: #0e7bd8;
 }
 .number {
   color: #aa00aa;
@@ -331,14 +328,12 @@ pre {
 }
 .function {
   color: #aa6633;
-  text-decoration: italic;
 }
 .null {
   color: #0000ff;
 }
 .comma {
   color: #000000;
-  font-weight: bold;
 }
 pre.code-container {
   margin-top: 0px;
