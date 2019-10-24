@@ -2,6 +2,7 @@ import commonUtil from '@/utils/commonUtil'
 const settings = {
   state: {
     settings: {
+      lang: localStorage.getItem('lang') || 'zh-CN',
       openSetting: commonUtil.getSettingStorage('openSetting'),
       showViewsBar: commonUtil.getSettingStorage('showViewsBar'),
       viewBarType: localStorage.getItem('viewBarType') || 'tab',

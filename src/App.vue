@@ -29,6 +29,7 @@ a {
 ul,
 li {
   list-style: none;
+  padding: 0;
 }
 #app {
   height: 100%;
@@ -71,6 +72,11 @@ li {
 /* 下拉框 */
 .el-select {
   width: 100%;
+}
+.nav-bar .nav-bar-right .el-input__inner {
+  border: none;
+  width: 100px;
+  padding-right: 10px;
 }
 
 /* 滚动条 */

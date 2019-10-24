@@ -14,48 +14,60 @@
       </transition>
     </div>
     <div class="nav-bar-right">
+      <el-select v-model="lang" size="small" @change="switchLang">
+        <el-option v-for="item in langs" :key="item.value" :label="item.label" :value="item.value"></el-option>
+      </el-select>
       <ul>
         <li>
-          <el-tooltip effect="dark" content="消息" placement="bottom">
+          <el-tooltip effect="dark" :content="$t('message.navBar.MESSAGE_TEXT')" placement="bottom">
             <el-badge :value="5">
               <i class="el-icon-message-solid"></i>
             </el-badge>
           </el-tooltip>
         </li>
         <li>
-          <el-tooltip effect="dark" content="便签" placement="bottom">
+          <el-tooltip effect="dark" :content="$t('message.navBar.NOTE_TEXT')" placement="bottom">
             <i class="el-icon-s-order"></i>
           </el-tooltip>
         </li>
         <li>
-          <el-tooltip effect="dark" content="分享" placement="bottom">
+          <el-tooltip effect="dark" :content="$t('message.navBar.SHARE_TEXT')" placement="bottom">
             <i class="el-icon-share"></i>
           </el-tooltip>
         </li>
         <li @click="openSettings">
-          <el-tooltip effect="dark" content="设置" placement="bottom">
+          <el-tooltip
+            effect="dark"
+            :content="$t('message.navBar.SETTINGS_TEXT')"
+            placement="bottom"
+          >
             <i class="el-icon-s-tools"></i>
           </el-tooltip>
         </li>
       </ul>
-      <div class="avatar">
-        <el-avatar
-          size="small"
-          src="https://cube.elemecdn.com/3/7c/3ea6beec64369c2642b92c6726f1epng.png"
-        ></el-avatar>
+      <div style="display: flex;align-items: center;">
+        <div class="avatar">
+          <el-avatar
+            size="small"
+            src="https://cube.elemecdn.com/3/7c/3ea6beec64369c2642b92c6726f1epng.png"
+          ></el-avatar>
+        </div>
+        <el-dropdown @command="handleCommand">
+          <span class="dropdown-menu">
+            admin
+            <i class="el-icon-arrow-down el-icon--right"></i>
+          </span>
+          <el-dropdown-menu slot="dropdown">
+            <el-dropdown-item icon="el-icon-user-solid">{{$t('message.navBar.BASIC_INFO_TEXT')}}</el-dropdown-item>
+            <el-dropdown-item icon="el-icon-info">{{$t('message.navBar.ABOUT_TEXT')}}</el-dropdown-item>
+            <el-dropdown-item
+              command="settings"
+              icon="el-icon-s-tools"
+            >{{$t('message.navBar.SETTINGS_TEXT')}}</el-dropdown-item>
+            <el-dropdown-item divided icon="el-icon-error">{{$t('message.navBar.LOGOUT_TEXT')}}</el-dropdown-item>
+          </el-dropdown-menu>
+        </el-dropdown>
       </div>
-      <el-dropdown @command="handleCommand">
-        <span class="dropdown-menu">
-          admin
-          <i class="el-icon-arrow-down el-icon--right"></i>
-        </span>
-        <el-dropdown-menu slot="dropdown">
-          <el-dropdown-item icon="el-icon-user-solid">基本资料</el-dropdown-item>
-          <el-dropdown-item icon="el-icon-info">关于我们</el-dropdown-item>
-          <el-dropdown-item command="settings" icon="el-icon-s-tools">系统设置</el-dropdown-item>
-          <el-dropdown-item divided icon="el-icon-error">退出登录</el-dropdown-item>
-        </el-dropdown-menu>
-      </el-dropdown>
     </div>
   </div>
 </template>
@@ -66,13 +78,27 @@ export default {
   data() {
     return {
       items: [],
-      show: false
+      show: false,
+      langs: [
+        {
+          value: "zh-CN",
+          label: "简体中文"
+        },
+        {
+          value: "en",
+          label: "English"
+        }
+      ],
+      lang: ""
     };
   },
   watch: {
     $route() {
       this.getBreadcrumb();
     }
+  },
+  created() {
+    this.lang = localStorage.getItem("lang") || "zh-CN";
   },
   mounted() {
     this.getBreadcrumb();
@@ -113,6 +139,14 @@ export default {
         key: "collapseMenu",
         type: "toggle"
       });
+    },
+    switchLang: function(value) {
+      localStorage.setItem("lang", value);
+      this.$store.dispatch("updateSettings", {
+        key: "lang",
+        value: value
+      });
+      this.$i18n.locale = value;
     },
     openSettings: function() {
       this.$store.dispatch("updateSettings", {
@@ -172,6 +206,8 @@ export default {
     }
     .dropdown-menu {
       cursor: pointer;
+      display: inline-block;
+      width: 90px;
     }
   }
 }

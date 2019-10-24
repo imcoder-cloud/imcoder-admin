@@ -4,14 +4,14 @@
       <menu-link :isExternal="leafMenu.isExternal" :path="resolvePath(leafMenu)">
         <el-menu-item :index="resolvePath(leafMenu)">
           <i :class="leafMenu.icon"></i>
-          <span slot="title">{{leafMenu.name}}</span>
+          <span slot="title">{{lang=='zh-CN'?leafMenu.name:leafMenu.enName}}</span>
         </el-menu-item>
       </menu-link>
     </template>
     <el-submenu v-else :index="resolvePath(menu)">
       <template slot="title">
         <i :class="menu.icon"></i>
-        <span>{{menu.name}}</span>
+        <span>{{lang=='zh-CN'?menu.name:menu.enName}}</span>
       </template>
       <menu-item
         v-for="child in menu.children"
@@ -25,15 +25,21 @@
 
 <script>
 import path from "path";
+import { mapGetters } from "vuex";
 import MenuLink from "./menu-link";
 export default {
   name: "MenuItem",
   components: {
     MenuLink
   },
+  computed: {
+    ...mapGetters(["settings"]),
+    lang: function() {
+      return this.settings.lang;
+    }
+  },
   props: {
     menu: {
-      // type: "Object",
       required: true
     },
     basePath: {

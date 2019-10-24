@@ -3998,6 +3998,7 @@ export default {};
   flex-wrap: wrap;
   border: 1px solid #eee;
   border-radius: 4px;
+  font-size: 13px;
   .fa-icon-item {
     width: 10%;
     display: flex;

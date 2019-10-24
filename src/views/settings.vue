@@ -2,32 +2,32 @@
   <el-drawer :show-close="false" :visible.sync="drawer" :before-close="handleClose">
     <div class="setting-container">
       <div>
-        <h3 class="setting-title">系统设置</h3>
+        <h3 class="setting-title">{{$t('message.settings.TITLE')}}</h3>
         <div class="setting-item">
-          <span>开启视图页签</span>
+          <span>{{$t('message.settings.OPEN_VIEWS_BAR_TEXT')}}</span>
           <el-switch v-model="showViewsBar" class="setting-switch" />
         </div>
         <div class="setting-item">
-          <span>视图页签样式</span>
+          <span>{{$t('message.settings.VIEWS_BAR_SYTLE_TEXT')}}</span>
           <el-radio-group v-model="viewBarType">
-            <el-radio label="tab">选项卡</el-radio>
-            <el-radio label="tag">标签</el-radio>
+            <el-radio label="tab">{{$t('message.settings.VIEWS_BAR_SYTLE_TAB_TEXT')}}</el-radio>
+            <el-radio label="tag">{{$t('message.settings.VIEWS_BAR_SYTLE_TAG_TEXT')}}</el-radio>
           </el-radio-group>
         </div>
         <div class="setting-item">
-          <span>刷新保留其他视图</span>
+          <span>{{$t('message.settings.KEEP_VIEWS_AFTER_REFRESH_TEXT')}}</span>
           <el-switch v-model="keepViewsByRefresh" class="setting-switch" />
         </div>
         <div class="setting-item">
-          <span>收缩菜单栏</span>
+          <span>{{$t('message.settings.COLLAPSE_MENU_BAR_TEXT')}}</span>
           <el-switch v-model="collapseMenu" class="setting-switch" />
         </div>
         <div class="setting-item">
-          <span>只保持一个菜单展开</span>
+          <span>{{$t('message.settings.UNIQUE_OPENED_TEXT')}}</span>
           <el-switch v-model="uniqueOpened" class="setting-switch" />
         </div>
         <div class="setting-item">
-          <span>开启面包屑</span>
+          <span>{{$t('message.settings.OPEN_BREAD_CRUMB_TEXT')}}</span>
           <el-switch v-model="showBreadCrumb" class="setting-switch" />
         </div>
       </div>
