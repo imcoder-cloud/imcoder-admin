@@ -2,11 +2,12 @@ import router from './index'
 import Auth from '@/auth'
 import Config from '@/config/index'
 import store from '@/store'
+import commonUtil from '@/utils/commonUtil'
 // 模拟用户数据 仅作测试使用
 import User from '@/json/user'
 
 router.beforeEach((to, from, next) => {
-  if (Auth.getToken()) { // 判断是否登录
+  if (commonUtil.notNull(Auth.getToken())) { // 判断是否登录
     if (store.state.user.dynamicRouters.length === 0) {
       addRouter(next, to)
     } else {

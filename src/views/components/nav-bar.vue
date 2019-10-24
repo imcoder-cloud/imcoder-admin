@@ -42,9 +42,27 @@
         </li>
         <li>
           <el-popover :title="$t('message.navBar.SHARE_TEXT')" width="330" trigger="hover">
-            <div>Github 地址:<br><el-link type="primary" :underline="false" href="https://github.com/dongdong-cloud/dd-admin" target="_blank">https://github.com/dongdong-cloud/dd-admin</el-link></div>
-            <br>
-            <div>码云地址:<br><el-link type="primary" :underline="false" href="https://gitee.com/dongdong-cloud/dd-admin" target="_blank">https://gitee.com/dongdong-cloud/dd-admin</el-link></div>
+            <div>
+              Github 地址:
+              <br />
+              <el-link
+                type="primary"
+                :underline="false"
+                href="https://github.com/dongdong-cloud/dd-admin"
+                target="_blank"
+              >https://github.com/dongdong-cloud/dd-admin</el-link>
+            </div>
+            <br />
+            <div>
+              码云地址:
+              <br />
+              <el-link
+                type="primary"
+                :underline="false"
+                href="https://gitee.com/dongdong-cloud/dd-admin"
+                target="_blank"
+              >https://gitee.com/dongdong-cloud/dd-admin</el-link>
+            </div>
             <i class="el-icon-share" slot="reference"></i>
           </el-popover>
         </li>
@@ -86,7 +104,11 @@
               command="settings"
               icon="el-icon-s-tools"
             >{{$t('message.navBar.SETTINGS_TEXT')}}</el-dropdown-item>
-            <el-dropdown-item divided icon="el-icon-error">{{$t('message.navBar.LOGOUT_TEXT')}}</el-dropdown-item>
+            <el-dropdown-item
+              divided
+              command="logout"
+              icon="el-icon-error"
+            >{{$t('message.navBar.LOGOUT_TEXT')}}</el-dropdown-item>
           </el-dropdown-menu>
         </el-dropdown>
       </div>
@@ -96,6 +118,7 @@
 
 <script>
 import { mapGetters } from "vuex";
+import Auth from "@/auth";
 export default {
   data() {
     return {
@@ -206,12 +229,24 @@ export default {
         value: true
       });
     },
+    logout: function() {
+      this.$confirm("确定要注销登录么?", "提示", {
+        confirmButtonText: "确定",
+        cancelButtonText: "取消",
+        type: "warning"
+      }).then(() => {
+        Auth.delToken();
+        this.$router.push("/login");
+      });
+    },
     handleCommand: function(command) {
       switch (command) {
         case "settings":
           this.openSettings();
           break;
-
+        case "logout":
+          this.logout();
+          break;
         default:
           break;
       }
