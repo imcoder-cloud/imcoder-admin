@@ -147,7 +147,7 @@ const user = {
           enName: 'PDF',
           icon: 'fa fa-file-pdf-o',
           parentId: 12,
-          component: 'basic/form'
+          component: 'file/pdf'
         }
       ]
     },
