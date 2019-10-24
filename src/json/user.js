@@ -183,11 +183,11 @@ const user = {
         {
           id: 19,
           path: 'index',
-          name: '打赏',
+          name: '捐赠',
           enName: 'Donate',
           icon: 'fa fa-heart',
           parentId: 18,
-          component: 'settings/index'
+          component: 'donate/index'
         }
       ]
     },
