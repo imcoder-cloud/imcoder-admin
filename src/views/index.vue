@@ -4,9 +4,9 @@
       <slot>
         本后台模板为静态模板，所有数据均为测试数据，均未与后台交互。如果此模板能够帮助您，烦请给本项目点个 star 谢谢。<br />
         github 地址：
-        <a href="https://github.com/dongdong-cloud/dd-admin-web" target="_blank">https://github.com/dongdong-cloud/dd-admin-web</a> &nbsp;&nbsp;&nbsp;
+        <a href="https://github.com/dongdong-cloud/dd-admin" target="_blank">https://github.com/dongdong-cloud/dd-admin</a> &nbsp;&nbsp;&nbsp;
         码云地址：
-        <a href="https://gitee.com/dongdong-cloud/dd-admin-web" target="_blank">https://gitee.com/dongdong-cloud/dd-admin-web</a>
+        <a href="https://gitee.com/dongdong-cloud/dd-admin" target="_blank">https://gitee.com/dongdong-cloud/dd-admin</a>
       </slot>
     </el-alert>
 

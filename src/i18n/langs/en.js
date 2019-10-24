@@ -16,6 +16,8 @@ const en = {
       MESSAGE_TEXT: 'message',
       NOTE_TEXT: 'note',
       SHARE_TEXT: 'share',
+      FULL_SCREEN_TEXT: 'fullscreen',
+      CANCEL_FULL_SCREEN_TEXT: 'cancel',
       SETTINGS_TEXT: 'settings',
       BASIC_INFO_TEXT: 'information',
       ABOUT_TEXT: 'about',

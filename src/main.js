@@ -10,6 +10,7 @@ import echarts from 'echarts'
 import 'xe-utils'
 import VXETable from 'vxe-table'
 import 'vxe-table/lib/index.css'
+import '@/assets/css/dd-icon.css'
 import i18n from '@/i18n/i18n'
 
 Vue.config.productionTip = false

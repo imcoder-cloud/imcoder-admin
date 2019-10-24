@@ -2,7 +2,7 @@
   <div class="nav-bar">
     <div class="nav-bar-left">
       <button class="toggle-btn" @click="toggleMenu">
-        <i class="el-icon-s-fold"></i>
+        <i :class="collapseMenu?'el-icon-s-unfold':'el-icon-s-fold'"></i>
       </button>
       <transition name="el-fade-in-linear">
         <el-breadcrumb separator="/" v-show="show" v-if="showBreadCrumb">
@@ -19,20 +19,42 @@
       </el-select>
       <ul>
         <li>
-          <el-tooltip effect="dark" :content="$t('message.navBar.MESSAGE_TEXT')" placement="bottom">
-            <el-badge :value="5">
+          <el-popover
+            :title="$t('message.navBar.MESSAGE_TEXT')"
+            width="200"
+            trigger="hover"
+            content="下班记得打卡，下班记得打卡，下班记得打卡，重要的事情说三遍。不然会扣工资！！！"
+          >
+            <el-badge :value="5" slot="reference">
               <i class="el-icon-message-solid"></i>
             </el-badge>
-          </el-tooltip>
+          </el-popover>
         </li>
         <li>
-          <el-tooltip effect="dark" :content="$t('message.navBar.NOTE_TEXT')" placement="bottom">
-            <i class="el-icon-s-order"></i>
-          </el-tooltip>
+          <el-popover
+            :title="$t('message.navBar.NOTE_TEXT')"
+            width="200"
+            trigger="hover"
+            content="下班记得打卡，下班记得打卡，下班记得打卡，重要的事情说三遍。不然会扣工资！！！"
+          >
+            <i class="el-icon-s-order" slot="reference"></i>
+          </el-popover>
         </li>
         <li>
-          <el-tooltip effect="dark" :content="$t('message.navBar.SHARE_TEXT')" placement="bottom">
-            <i class="el-icon-share"></i>
+          <el-popover :title="$t('message.navBar.SHARE_TEXT')" width="330" trigger="hover">
+            <div>Github 地址:<br><el-link type="primary" :underline="false" href="https://github.com/dongdong-cloud/dd-admin" target="_blank">https://github.com/dongdong-cloud/dd-admin</el-link></div>
+            <br>
+            <div>码云地址:<br><el-link type="primary" :underline="false" href="https://gitee.com/dongdong-cloud/dd-admin" target="_blank">https://gitee.com/dongdong-cloud/dd-admin</el-link></div>
+            <i class="el-icon-share" slot="reference"></i>
+          </el-popover>
+        </li>
+        <li @click="handleFullScreen">
+          <el-tooltip
+            effect="dark"
+            :content="fullscreen?$t('message.navBar.CANCEL_FULL_SCREEN_TEXT'):$t('message.navBar.FULL_SCREEN_TEXT')"
+            placement="bottom"
+          >
+            <i class="dd full-screen" :class="fullscreen?'cancel-full-screen':'full-screen'"></i>
           </el-tooltip>
         </li>
         <li @click="openSettings">
@@ -89,7 +111,8 @@ export default {
           label: "English"
         }
       ],
-      lang: ""
+      lang: "",
+      fullscreen: false
     };
   },
   watch: {
@@ -107,6 +130,9 @@ export default {
     ...mapGetters(["settings"]),
     showBreadCrumb() {
       return this.settings.showBreadCrumb;
+    },
+    collapseMenu() {
+      return this.settings.collapseMenu;
     }
   },
   methods: {
@@ -147,6 +173,32 @@ export default {
         value: value
       });
       this.$i18n.locale = value;
+    },
+    handleFullScreen: function() {
+      let element = document.documentElement;
+      if (this.fullscreen) {
+        if (document.exitFullscreen) {
+          document.exitFullscreen();
+        } else if (document.webkitCancelFullScreen) {
+          document.webkitCancelFullScreen();
+        } else if (document.mozCancelFullScreen) {
+          document.mozCancelFullScreen();
+        } else if (document.msExitFullscreen) {
+          document.msExitFullscreen();
+        }
+      } else {
+        if (element.requestFullscreen) {
+          element.requestFullscreen();
+        } else if (element.webkitRequestFullScreen) {
+          element.webkitRequestFullScreen();
+        } else if (element.mozRequestFullScreen) {
+          element.mozRequestFullScreen();
+        } else if (element.msRequestFullscreen) {
+          // IE11
+          element.msRequestFullscreen();
+        }
+      }
+      this.fullscreen = !this.fullscreen;
     },
     openSettings: function() {
       this.$store.dispatch("updateSettings", {

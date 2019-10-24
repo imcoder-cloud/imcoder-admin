@@ -26,16 +26,16 @@ dd-admin-web是一个前端解决方案，基于 vue 2 和 element-ui 2.12.0 开
   - 登录验证
   - 权限控制（开发中）
 - 全局功能
-  - 全屏控制（开发中）
-  - 菜单收缩展开
+  - 全屏显示
+  - 菜单控制
   - 多级路由（菜单）嵌套
   - 面包屑设置
   - 个性页签视图
-  - 丰富图表实例
-  - 多种字体图标
+  - 多种图表实例
+  - 丰富字体图标
   - 页面自适应
   - 个性化皮肤（开发中）
-  - 国际化语言（开发中）
+  - 国际化语言切换
   - 支持外部链接
 - 基础组件
   - 表格
@@ -52,22 +52,22 @@ dd-admin-web是一个前端解决方案，基于 vue 2 和 element-ui 2.12.0 开
   - ueditor
   - 代码编辑器
 - 文件操作
-  - Excel
-  - PDf
+  - Excel导入导出
+  - PDf预览
 - 错误页面
-  - 401页面
-  - 404页面
-  - 500页面
+  - 401 页面
+  - 404 页面
+  - 500 页面
   
 ### 系统截图
 -----
 
-![首页](./src/assets/1.jpg)
-![表格](./src/assets/2.jpg)
-![表单](./src/assets/3.jpg)
-![编辑器](./src/assets/4.jpg)
-![编辑器](./src/assets/5.jpg)
-![设置](./src/assets/6.jpg)
+![首页](./src/assets/images/1.jpg)
+![表格](./src/assets/images/2.jpg)
+![表单](./src/assets/images/3.jpg)
+![编辑器](./src/assets/images/4.jpg)
+![编辑器](./src/assets/images/5.jpg)
+![设置](./src/assets/images/6.jpg)
 
 ### 安装步骤
 -----
@@ -142,12 +142,12 @@ npm run build
   <div style="display:flex;flex-direction:column;align-items:center;width:150px">
     <span>支付宝</span>
     <br>
-    <img src="./src/assets/zfb.jpg" style="width:100%;">
+    <img src="./src/assets/images/zfb.jpg" style="width:100%;">
   </div>
   <div style="display:flex;flex-direction:column;align-items:center;width:150px;pxmargin-left:50px">
     <span>微信</span>
     <br>
-    <img src="./src/assets/wx.jpg" style="width:100%;">
+    <img src="./src/assets/images/wx.jpg" style="width:100%;">
   </div>
 </div>
 

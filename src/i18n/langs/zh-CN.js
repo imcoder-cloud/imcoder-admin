@@ -16,6 +16,8 @@ const cn = {
       MESSAGE_TEXT: '消息',
       NOTE_TEXT: '便签',
       SHARE_TEXT: '分享',
+      FULL_SCREEN_TEXT: '全屏',
+      CANCEL_FULL_SCREEN_TEXT: '取消全屏',
       SETTINGS_TEXT: '系统设置',
       BASIC_INFO_TEXT: '基本信息',
       ABOUT_TEXT: '关于我们',

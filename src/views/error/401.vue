@@ -12,7 +12,7 @@ export default {};
 
 <style lang="scss" scoped>
 .bg {
-  background: url("../../assets/401_bg.jpg") no-repeat center center;
+  background: url("../../assets/images/401_bg.jpg") no-repeat center center;
   width: 1031px;
   height: 236px;
   margin: auto;
