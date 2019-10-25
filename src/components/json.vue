@@ -301,7 +301,7 @@ export default {
 };
 </script>
 
-<style>
+<style lang="scss" scoped>
 .json-show {
   white-space: pre-wrap;
 }
