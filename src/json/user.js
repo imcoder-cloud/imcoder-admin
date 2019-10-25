@@ -175,7 +175,7 @@ const user = {
     {
       id: 18,
       path: '/donate',
-      name: '捐赠',
+      name: '打赏',
       enName: 'Donate',
       icon: 'fa fa-heart',
       parentId: 0,

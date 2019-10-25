@@ -167,7 +167,7 @@ export default {
         }
       });
       let first = matched[0];
-      if (first && first.name === "home") {
+      if (first && first.name === "Home") {
         // 首页的上级菜单
         matched.splice(0, 1); //删除上级菜单
         first = matched[0];
