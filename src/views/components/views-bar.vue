@@ -297,7 +297,6 @@ export default {
       const path = tab.$el.dataset.path;
       if (this.$route.path != path) {
         this.$router.push(path);
-        console.log(path);
       }
     },
     removeView: function(name) {
@@ -366,7 +365,7 @@ export default {
 .scroll-container {
   .view-item {
     .el-icon-close {
-        line-height: 17px;
+      line-height: 17px;
       &:hover {
         background-color: #f56c6c;
         color: #fff;
@@ -413,6 +412,7 @@ export default {
       background-color: #f1f1f1;
       height: 35px;
       border-top: 2px solid #409eff;
+      border-bottom-color: #f1f1f1 !important;
     }
     .el-tabs__nav-next,
     .el-tabs__nav-prev {
