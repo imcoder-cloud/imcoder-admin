@@ -63,7 +63,7 @@ Dd-Admin 是一个前端解决方案，基于 vue 2 和 element-ui 2.12.0 开发
 ### 演示地址
 -----
 
-[演示地址](https://dd-admin.ocreatech.com "dd-admin")
+演示地址 [https://dd-admin.ocreatech.com](https://dd-admin.ocreatech.com "dd-admin")
   
 ### 系统截图
 -----
