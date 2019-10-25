@@ -31,7 +31,7 @@ const user = {
       icon: 'fa fa-github',
       parentId: 0,
       component: 'home',
-      isExternal: true,
+      type: 'external', // type 菜单类型 默认internal, internal:内部链接, external:外部链接, click:点击事件
       children: [
         {
           id: 3,
@@ -41,7 +41,7 @@ const user = {
           icon: 'fa fa-github',
           parentId: 2,
           component: 'index',
-          isExternal: true
+          type: 'external'
         }
       ]
     },
@@ -159,15 +159,16 @@ const user = {
       icon: 'fa fa-cog',
       parentId: 0,
       component: 'home',
+      type: 'click',
       children: [
         {
           id: 17,
-          path: 'index',
+          path: 'settings',
           name: '系统设置',
           enName: 'Settings',
           icon: 'fa fa-cog',
           parentId: 16,
-          component: 'settings/index'
+          type: 'click'
         }
       ]
     },
@@ -280,21 +281,21 @@ const user = {
     },
     {
       id: 30,
-      path: 'https://github.com/dongdong-cloud/vue-admin',
+      path: 'https://dd-admin.ocreatech.com',
       name: '链接',
       enName: 'Link',
       icon: 'fa fa-link',
-      isExternal: true,
+      type: 'external',
       parentId: 0,
       children: [
         {
           id: 31,
-          path: 'https://github.com/dongdong-cloud/vue-admin',
+          path: 'https://dd-admin.ocreatech.com',
           name: '外部链接',
           enName: 'External Link',
           icon: 'fa fa-external-link-square',
           parentId: 30,
-          isExternal: true
+          type: 'external'
         }
       ]
     }

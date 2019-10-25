@@ -1,7 +1,7 @@
 <template>
   <div>
     <template v-if="canBeLeafMenu(menu)">
-      <menu-link :isExternal="leafMenu.isExternal" :path="resolvePath(leafMenu)">
+      <menu-link :type="leafMenu.type" :path="resolvePath(leafMenu)">
         <el-menu-item :index="resolvePath(leafMenu)">
           <i :class="leafMenu.icon"></i>
           <span slot="title">{{lang=='zh-CN'?leafMenu.name:leafMenu.enName}}</span>
@@ -65,11 +65,18 @@ export default {
       return false;
     },
     resolvePath: function(route) {
-      if (route.isExternal) {
-        return route.path;
+      switch (route.type) {
+        case "external":
+          return route.path;
+          break;
+        case "click":
+          return route.path + "@click";
+          break;
+        default:
+          let retPath = path.resolve(this.basePath, route.path);
+          return retPath;
+          break;
       }
-      let retPath = path.resolve(this.basePath, route.path);
-      return retPath;
     }
   }
 };

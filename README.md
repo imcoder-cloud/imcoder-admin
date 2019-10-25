@@ -37,6 +37,7 @@ Dd-Admin 是一个前端解决方案，基于 vue 2 和 element-ui 2.12.0 开发
   - 个性化皮肤（开发中）
   - 国际化语言切换
   - 支持外部链接
+  - 支持菜单点击
 - 基础组件
   - 表格
     - 基础表格
@@ -58,6 +59,11 @@ Dd-Admin 是一个前端解决方案，基于 vue 2 和 element-ui 2.12.0 开发
   - 401 页面
   - 404 页面
   - 500 页面
+
+### 演示地址
+-----
+
+[演示地址](https://dd-admin.ocreatech.com "dd-admin")
   
 ### 系统截图
 -----
@@ -91,24 +97,30 @@ npm run build
 ├── config                      // 配置文件
 ├── src                         // 核心代码
 │   ├── assets                  
+│   │   ├── css                 // 自定义样式文件
+│   │   └── images              // 图片文件
 │   ├── auth                    // 登录认证相关
 │   ├── components              // vue 组件
 │   ├── config                  // 配置控制
 │   ├── json                    // json 文件
 │   ├── router                  // 路由控制
 │   ├── store                   // vuex 存储
-|   |   ├── modules
-|   |   ├── getter.js
-|   |   └── index.js
+│   │   ├── modules
+│   │   ├── getter.js
+│   │   └── index.js
 │   ├── utils                   // 工具
 │   ├── views                   // 视图
-│   |   ├── basic               // 基础组件
-│   |   ├── components          // 视图组件
-│   |   ├── editor              // 编辑器组件
-│   |   ├── menu-1              // 多级菜单
-│   |   ├── home.vue            // 项目主框架
-│   |   ├── login.vue           // 登录
-│   |   └── settings.vue        // 侧边设置
+│   │   ├── basic               // 基础组件
+│   │   ├── components          // 视图组件
+│   │   ├── donate              // 捐赠
+│   │   ├── editor              // 编辑器组件
+│   │   ├── error               // 错误页面
+│   │   ├── file                // 文件操作
+│   │   ├── icon                // 字体图标
+│   │   ├── menu-1              // 多级菜单
+│   │   ├── home.vue            // 项目主框架
+│   │   ├── login.vue           // 登录
+│   │   └── settings.vue        // 侧边设置
 │   ├── App.vue                 // 根路由视图
 │   └── main.js                 // 项目入口
 ├── static
@@ -130,9 +142,9 @@ npm run build
 ### 浏览器兼容
 -----
 
-| [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/edge/edge_48x48.png" alt="IE / Edge" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)<br>IE / Edge | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/firefox/firefox_48x48.png" alt="Firefox" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)<br>Firefox | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/chrome/chrome_48x48.png" alt="Chrome" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)<br>Chrome | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/safari/safari_48x48.png" alt="Safari" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)<br>Safari | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/safari-ios/safari-ios_48x48.png" alt="iOS Safari" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)<br>iOS Safari | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/opera/opera_48x48.png" alt="Opera" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)<br>Opera |
-| --------- | --------- | --------- | --------- | --------- | --------- |
-| IE11, Edge| last 2 versions| last 2 versions| last 2 versions| last 2 versions| last 2 versions
+│ [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/edge/edge_48x48.png" alt="IE / Edge" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)<br>IE / Edge │ [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/firefox/firefox_48x48.png" alt="Firefox" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)<br>Firefox │ [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/chrome/chrome_48x48.png" alt="Chrome" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)<br>Chrome │ [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/safari/safari_48x48.png" alt="Safari" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)<br>Safari │ [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/safari-ios/safari-ios_48x48.png" alt="iOS Safari" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)<br>iOS Safari │ [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/opera/opera_48x48.png" alt="Opera" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)<br>Opera │
+│ --------- │ --------- │ --------- │ --------- │ --------- │ --------- │
+│ IE11, Edge│ last 2 versions│ last 2 versions│ last 2 versions│ last 2 versions│ last 2 versions
 
 ### 捐赠
 ---

@@ -48,7 +48,28 @@ export default {
     }
   },
   methods: {
-    handleSelect(key, keyPath) {}
+    handleSelect(key, keyPath) {
+      if (key.indexOf("@") > -1) {
+        let path = key.split("@")[0];
+        this.handleClick(path);
+      }
+    },
+    handleClick(path) {
+      switch (path) {
+        case "settings":
+          this.showSettings();
+          break;
+
+        default:
+          break;
+      }
+    },
+    showSettings() {
+      this.$store.dispatch("updateSettings", {
+        key: "openSetting",
+        value: true
+      });
+    }
   }
 };
 </script>
