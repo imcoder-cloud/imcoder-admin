@@ -3,10 +3,13 @@ import Auth from '@/auth'
 import Config from '@/config/index'
 import store from '@/store'
 import commonUtil from '@/utils/commonUtil'
+import NProgress from 'nprogress'
+import 'nprogress/nprogress.css'
 // 模拟用户数据 仅作测试使用
 import User from '@/json/user'
 
 router.beforeEach((to, from, next) => {
+  NProgress.start()
   if (commonUtil.notNull(Auth.getToken())) { // 判断是否登录
     if (store.state.user.dynamicRouters.length === 0) {
       addRouter(next, to)
@@ -23,7 +26,7 @@ router.beforeEach((to, from, next) => {
 })
 
 router.afterEach(() => {
-
+  NProgress.done()
 })
 
 export const addRouter = (next, to) => {
