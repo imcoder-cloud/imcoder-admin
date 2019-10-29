@@ -8,9 +8,10 @@
         <nav-bar />
         <views-bar v-if="showViewsBar" :type="getViewBarType" />
       </el-header>
-      <el-scrollbar class="full-height">
+      <el-scrollbar class="full-height main-view">
         <div class="full-height main">
-          <router-view />
+          <router-view/>
+          <el-backtop target=".main-view .el-scrollbar__wrap"></el-backtop>
         </div>
       </el-scrollbar>
     </el-container>
