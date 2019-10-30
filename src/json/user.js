@@ -71,6 +71,15 @@ const user = {
           icon: 'fa fa-wpforms',
           parentId: 4,
           component: 'basic/form'
+        },
+        {
+          id: 32,
+          path: 'floor',
+          name: '楼层切换',
+          enName: 'floor',
+          icon: 'fa fa-wpforms',
+          parentId: 4,
+          component: 'floor/index'
         }
       ]
     },
