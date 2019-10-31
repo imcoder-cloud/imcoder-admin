@@ -59,13 +59,14 @@ li {
 }
 
 /* font awesome 菜单中图标样式*/
-.el-menu-item .fa,
-.el-submenu .fa {
+.el-menu-item i,
+.el-submenu i {
   margin-right: 5px;
   width: 24px;
   text-align: center;
   font-size: 18px;
   vertical-align: middle;
+  display: inline-block;
 }
 
 /* element ui 样式重写 */

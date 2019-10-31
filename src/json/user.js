@@ -80,6 +80,15 @@ const user = {
           icon: 'fa fa-exchange',
           parentId: 4,
           component: 'floor/index'
+        },
+        {
+          id: 33,
+          path: 'select-tree',
+          name: '树形选择器',
+          enName: 'select-tree',
+          icon: 'dd file-tree',
+          parentId: 4,
+          component: 'select-tree/index'
         }
       ]
     },

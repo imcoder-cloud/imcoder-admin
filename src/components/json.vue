@@ -1,5 +1,7 @@
 <template>
-  <div class="json-show" v-html="jsonHtml"></div>
+  <el-scrollbar>
+    <div class="json-show" v-html="jsonHtml"></div>
+  </el-scrollbar>
 </template>
 
 <script>
@@ -301,9 +303,10 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 .json-show {
   white-space: pre-wrap;
+  height: 400px;
 }
 pre {
   font-family: "consolas";

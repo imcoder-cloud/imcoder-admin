@@ -197,6 +197,10 @@
         <i class="dd delete"></i>
         delete
       </div>
+      <div class="icon-item">
+        <i class="dd file-tree"></i>
+        file-tree
+      </div>
     </div>
   </div>
 </template>
