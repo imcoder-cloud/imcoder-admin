@@ -77,7 +77,7 @@ const user = {
           path: 'floor',
           name: '楼层切换',
           enName: 'floor',
-          icon: 'fa fa-wpforms',
+          icon: 'fa fa-exchange',
           parentId: 4,
           component: 'floor/index'
         }
