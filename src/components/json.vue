@@ -307,39 +307,39 @@ export default {
 .json-show {
   white-space: pre-wrap;
   height: 400px;
-}
-pre {
-  font-family: "consolas";
-}
-.object-brace {
-  color: #3b3b3b;
-}
-.array-brace {
-  color: #3b3b3b;
-}
-.property-name {
-  color: #d61818;
-}
-.string {
-  color: #0e7bd8;
-}
-.number {
-  color: #aa00aa;
-}
-.boolean {
-  color: #0000ff;
-}
-.function {
-  color: #aa6633;
-}
-.null {
-  color: #0000ff;
-}
-.comma {
-  color: #000000;
-}
-pre.code-container {
-  margin-top: 0px;
-  margin-bottom: 0px;
+  pre {
+    font-family: "consolas";
+  }
+  .object-brace {
+    color: #3b3b3b;
+  }
+  .array-brace {
+    color: #3b3b3b;
+  }
+  .property-name {
+    color: #d61818;
+  }
+  .string {
+    color: #0e7bd8;
+  }
+  .number {
+    color: #aa00aa;
+  }
+  .boolean {
+    color: #0000ff;
+  }
+  .function {
+    color: #aa6633;
+  }
+  .null {
+    color: #0000ff;
+  }
+  .comma {
+    color: #000000;
+  }
+  pre.code-container {
+    margin-top: 0px;
+    margin-bottom: 0px;
+  }
 }
 </style>

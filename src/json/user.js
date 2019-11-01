@@ -89,6 +89,15 @@ const user = {
           icon: 'dd file-tree',
           parentId: 4,
           component: 'select-tree/index'
+        },
+        {
+          id: 34,
+          path: 'tree',
+          name: '树形组件',
+          enName: 'tree',
+          icon: 'dd file-tree',
+          parentId: 4,
+          component: 'tree/index'
         }
       ]
     },

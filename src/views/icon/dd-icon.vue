@@ -201,6 +201,30 @@
         <i class="dd file-tree"></i>
         file-tree
       </div>
+      <div class="icon-item">
+        <i class="dd plus"></i>
+        plus
+      </div>
+      <div class="icon-item">
+        <i class="dd minus"></i>
+        minus
+      </div>
+      <div class="icon-item">
+        <i class="dd right"></i>
+        right
+      </div>
+      <div class="icon-item">
+        <i class="dd error"></i>
+        error
+      </div>
+      <div class="icon-item">
+        <i class="dd edit"></i>
+        edit
+      </div>
+      <div class="icon-item">
+        <i class="dd close"></i>
+        close
+      </div>
     </div>
   </div>
 </template>
