@@ -98,6 +98,15 @@ const user = {
           icon: 'dd file-tree',
           parentId: 4,
           component: 'tree/index'
+        },
+        {
+          id: 35,
+          path: 'color-picker',
+          name: '颜色选择器',
+          enName: 'color picker',
+          icon: 'fa fa-cube',
+          parentId: 4,
+          component: 'color-picker/index'
         }
       ]
     },

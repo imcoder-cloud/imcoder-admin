@@ -9,6 +9,8 @@
         <el-checkbox v-model="config.draggable">可拖动</el-checkbox>
         <el-checkbox v-model="config.checkOnClick">点击勾选</el-checkbox>
         <el-checkbox v-model="config.expandOnClick">点击展开收缩</el-checkbox>
+        <el-radio v-model="config.position" label="left">操作组在左</el-radio>
+        <el-radio v-model="config.position" label="right">操作组在右</el-radio>
       </div>
     </el-row>
     <el-row :gutter="20">
@@ -22,6 +24,7 @@
             :expand-all="config.expandAll"
             :check-on-click="config.checkOnClick"
             :expand-on-click="config.expandOnClick"
+            :operate-position="config.position"
             @node-click="nodeClick"
             @drag-start="dragStart"
             @drag-enter="dragEnter"
@@ -68,7 +71,8 @@ export default {
         checkbox: true,
         draggable: false,
         checkOnClick: true,
-        expandOnClick: false
+        expandOnClick: false,
+        position: "right"
       },
       nodeStr: "",
       data: [
