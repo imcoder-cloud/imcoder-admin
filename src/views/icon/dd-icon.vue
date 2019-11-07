@@ -225,6 +225,10 @@
         <i class="dd close"></i>
         close
       </div>
+      <div class="icon-item">
+        <i class="dd markdown"></i>
+        markdown
+      </div>
     </div>
   </div>
 </template>

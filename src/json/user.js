@@ -155,6 +155,15 @@ const user = {
           icon: 'fa fa-code',
           parentId: 9,
           component: 'editor/code'
+        },
+        {
+          id: 36,
+          path: 'markdown',
+          name: 'markdown',
+          enName: 'markdown',
+          icon: 'dd markdown',
+          parentId: 9,
+          component: 'editor/markdown'
         }
       ]
     },
