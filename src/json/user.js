@@ -79,7 +79,7 @@ const user = {
           enName: 'floor',
           icon: 'fa fa-exchange',
           parentId: 4,
-          component: 'floor/index'
+          component: 'basic/floor'
         },
         {
           id: 33,
@@ -88,7 +88,7 @@ const user = {
           enName: 'select-tree',
           icon: 'dd file-tree',
           parentId: 4,
-          component: 'select-tree/index'
+          component: 'basic/select-tree'
         },
         {
           id: 34,
@@ -97,7 +97,7 @@ const user = {
           enName: 'tree',
           icon: 'dd file-tree',
           parentId: 4,
-          component: 'tree/index'
+          component: 'basic/tree'
         },
         {
           id: 35,
@@ -106,7 +106,16 @@ const user = {
           enName: 'color picker',
           icon: 'fa fa-cube',
           parentId: 4,
-          component: 'color-picker/index'
+          component: 'basic/color-picker'
+        },
+        {
+          id: 37,
+          path: 'count-to',
+          name: '动态数字',
+          enName: 'count to',
+          icon: 'dd num',
+          parentId: 4,
+          component: 'basic/count-to'
         }
       ]
     },

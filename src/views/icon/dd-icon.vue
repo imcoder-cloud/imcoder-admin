@@ -229,6 +229,10 @@
         <i class="dd markdown"></i>
         markdown
       </div>
+      <div class="icon-item">
+        <i class="dd num"></i>
+        num
+      </div>
     </div>
   </div>
 </template>
