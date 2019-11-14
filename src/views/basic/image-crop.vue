@@ -19,7 +19,7 @@
         <el-checkbox v-model="noRotate">关闭旋转图像</el-checkbox>
       </el-form-item>
       <el-form-item>
-        <el-button @click="toggleShow">设置头像</el-button>
+        <el-button @click="toggleShow">上传图片</el-button>
       </el-form-item>
     </el-form>
     <image-crop
