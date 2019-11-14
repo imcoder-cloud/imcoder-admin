@@ -116,6 +116,24 @@ const user = {
           icon: 'dd num',
           parentId: 4,
           component: 'basic/count-to'
+        },
+        // {
+        //   id: 38,
+        //   path: 'sticky',
+        //   name: '吸附',
+        //   enName: 'sticky',
+        //   icon: 'dd num',
+        //   parentId: 4,
+        //   component: 'basic/sticky'
+        // },
+        {
+          id: 39,
+          path: 'image-crop',
+          name: '图片剪裁',
+          enName: 'image crop',
+          icon: 'fa fa-image',
+          parentId: 4,
+          component: 'basic/image-crop'
         }
       ]
     },
