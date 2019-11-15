@@ -134,6 +134,15 @@ const user = {
           icon: 'fa fa-image',
           parentId: 4,
           component: 'basic/image-crop'
+        },
+        {
+          id: 40,
+          path: 'share',
+          name: '分享组件',
+          enName: 'share',
+          icon: 'el-icon-share',
+          parentId: 4,
+          component: 'basic/share'
         }
       ]
     },

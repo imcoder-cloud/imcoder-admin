@@ -12,12 +12,14 @@ import VXETable from 'vxe-table'
 import 'vxe-table/lib/index.css'
 import '@/assets/css/dd-icon.css'
 import i18n from '@/i18n/i18n'
+import DdShare from 'dd-share'
 
 Vue.config.productionTip = false
 
 Vue.use(ElementUI)
 Vue.use(echarts)
 Vue.use(VXETable)
+Vue.use(DdShare)
 
 /* eslint-disable no-new */
 new Vue({

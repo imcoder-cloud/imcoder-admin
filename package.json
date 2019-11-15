@@ -14,6 +14,7 @@
     "build": "node build/build.js"
   },
   "dependencies": {
+    "dd-share": "^1.0.1",
     "echarts": "^4.4.0",
     "element-ui": "^2.12.0",
     "font-awesome": "^4.7.0",
