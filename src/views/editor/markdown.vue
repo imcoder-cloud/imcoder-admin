@@ -1,7 +1,7 @@
 <template>
   <div>
     <el-row class="mb20">
-      <mavon-editor v-model="content" ref="md" @change="change" style="min-height: 600px" />
+      <mavon-editor v-model="content" ref="md" @change="change" style="height: 700px" />
     </el-row>
     <el-row>
       <el-button type="primary" @click="getMarkdownText">获取 markdown</el-button>
@@ -46,4 +46,24 @@ export default {
 </script>
 
 <style>
+.v-show-content {
+  background-color: #fff !important;
+}
+code {
+  font-size: 100% !important;
+}
+mark {
+  color: rgb(231, 12, 12);
+  padding: 0 5px;
+  margin: 0 4px;
+  border-radius: 3px;
+  white-space: nowrap;
+  background-color: #f8f8f8;
+}
+.markdown-body table th {
+  background-color: #f8f8f8;
+}
+.hljs {
+  background: none !important;
+}
 </style>
