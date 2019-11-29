@@ -200,6 +200,15 @@ const user = {
           icon: 'dd markdown',
           parentId: 9,
           component: 'editor/markdown'
+        },
+        {
+          id: 41,
+          path: 'quill',
+          name: 'quill',
+          enName: 'quill',
+          icon: 'fa fa-file-text-o',
+          parentId: 9,
+          component: 'editor/quill'
         }
       ]
     },

@@ -14,6 +14,11 @@ import '@/assets/css/dd-icon.css'
 import i18n from '@/i18n/i18n'
 import DdShare from 'dd-share'
 
+// quill编辑器代码高亮
+import 'quill/dist/quill.snow.css'
+import 'highlight.js/styles/agate.css'
+import '@/assets/css/quill.css'
+
 Vue.config.productionTip = false
 
 Vue.use(ElementUI)

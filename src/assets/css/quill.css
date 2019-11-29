@@ -1,0 +1,75 @@
+pre,code {
+  font-family: Consolas;
+}
+.ql-container{font-size: 14px;}
+.ql-snow pre.ql-syntax {
+  background-color: #23241f;
+  color: #fff;
+  font-size: 14px;
+}
+.ql-snow pre {
+  padding: 12px 15px;
+  border-radius: 3px;
+  margin-bottom: 5px;
+  margin-top: 5px;
+  padding: 5px 10px;
+}
+.ql-snow .ql-formats button i {
+  font-size: 17px;
+}
+
+.ql-snow .ql-picker.ql-size .ql-picker-label[data-value="12px"]::before,
+.ql-snow .ql-picker.ql-size .ql-picker-item[data-value="12px"]::before {
+  content: "12px";
+  font-size: 12px;
+}
+.ql-snow .ql-picker.ql-size .ql-picker-label[data-value="13px"]::before,
+.ql-snow .ql-picker.ql-size .ql-picker-item[data-value="13px"]::before {
+  content: "13px";
+  font-size: 13px;
+}
+.ql-snow .ql-picker.ql-size .ql-picker-label[data-value="14px"]::before,
+.ql-snow .ql-picker.ql-size .ql-picker-item[data-value="14px"]::before {
+  content: "14px";
+  font-size: 14px;
+}
+.ql-snow .ql-picker.ql-size .ql-picker-label[data-value="15px"]::before,
+.ql-snow .ql-picker.ql-size .ql-picker-item[data-value="15px"]::before {
+  content: "15px";
+  font-size: 15px;
+}
+.ql-snow .ql-picker.ql-size .ql-picker-label[data-value="16px"]::before,
+.ql-snow .ql-picker.ql-size .ql-picker-item[data-value="16px"]::before {
+  content: "16px";
+  font-size: 16px;
+}
+.ql-snow .ql-picker.ql-size .ql-picker-label[data-value="17px"]::before,
+.ql-snow .ql-picker.ql-size .ql-picker-item[data-value="17px"]::before {
+  content: "17px";
+  font-size: 17px;
+}
+.ql-snow .ql-picker.ql-size .ql-picker-label[data-value="18px"]::before,
+.ql-snow .ql-picker.ql-size .ql-picker-item[data-value="18px"]::before {
+  content: "18px";
+  font-size: 18px;
+}
+.ql-snow .ql-picker.ql-size .ql-picker-label[data-value="20px"]::before,
+.ql-snow .ql-picker.ql-size .ql-picker-item[data-value="20px"]::before {
+  content: "20px";
+  font-size: 20px;
+}
+.ql-snow .ql-picker.ql-size .ql-picker-label[data-value="24px"]::before,
+.ql-snow .ql-picker.ql-size .ql-picker-item[data-value="24px"]::before {
+  content: "24px";
+  font-size: 24px;
+}
+.ql-snow .ql-picker.ql-size .ql-picker-label[data-value="28px"]::before,
+.ql-snow .ql-picker.ql-size .ql-picker-item[data-value="28px"]::before {
+  content: "28px";
+  font-size: 28px;
+}
+.ql-snow .ql-picker.ql-size .ql-picker-label[data-value="32px"]::before,
+.ql-snow .ql-picker.ql-size .ql-picker-item[data-value="32px"]::before {
+  content: "32px";
+  font-size: 32px;
+}
