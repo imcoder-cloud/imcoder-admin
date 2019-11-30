@@ -8,7 +8,7 @@
 import Quill from "quill";
 import hljs from "highlight.js";
 import { ImageResize } from 'quill-image-resize-module';
-Quill.register('modules/imageResize', ImageResize);
+// Quill.register('modules/imageResize', ImageResize);
 
 export default {
   name: "editor",

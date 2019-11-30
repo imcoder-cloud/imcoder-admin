@@ -16,7 +16,7 @@ import DdShare from 'dd-share'
 
 // quill编辑器代码高亮
 import 'quill/dist/quill.snow.css'
-import 'highlight.js/styles/agate.css'
+import 'highlight.js/styles/monokai-sublime.css'
 import '@/assets/css/quill.css'
 
 Vue.config.productionTip = false
@@ -28,10 +28,10 @@ Vue.use(DdShare)
 
 /* eslint-disable no-new */
 new Vue({
-  el: '#app',
-  router,
-  store,
-  i18n,
-  components: { App },
-  template: '<App/>'
+    el: '#app',
+    router,
+    store,
+    i18n,
+    components: { App },
+    template: '<App/>'
 })
