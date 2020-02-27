@@ -6,7 +6,7 @@ const cn = {
       OPEN_VIEWS_BAR_TEXT: '开启视图页签',
       VIEWS_BAR_SYTLE_TEXT: '视图页签样式',
       VIEWS_BAR_SYTLE_TAB_TEXT: '选项卡',
-      VIEWS_BAR_SYTLE_TAG_TEXT: '选项卡',
+      VIEWS_BAR_SYTLE_TAG_TEXT: '标签',
       KEEP_VIEWS_AFTER_REFRESH_TEXT: '刷新保留其他视图',
       COLLAPSE_MENU_BAR_TEXT: '收缩菜单栏',
       UNIQUE_OPENED_TEXT: '保持一个子菜单展开',

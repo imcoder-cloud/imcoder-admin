@@ -95,6 +95,6 @@ export default {
 
 <style lang="scss">
 .ql-editor {
-  height: 600px;
+  height: 600px!important;
 }
 </style>
