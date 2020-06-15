@@ -230,15 +230,15 @@ const user = {
           parentId: 12,
           component: 'file/excel'
         },
-        {
-          id: 15,
-          path: 'pdf',
-          name: 'PDF',
-          enName: 'PDF',
-          icon: 'fa fa-file-pdf-o',
-          parentId: 12,
-          component: 'file/pdf'
-        }
+        // {
+        //   id: 15,
+        //   path: 'pdf',
+        //   name: 'PDF',
+        //   enName: 'PDF',
+        //   icon: 'fa fa-file-pdf-o',
+        //   parentId: 12,
+        //   component: 'file/pdf'
+        // }
       ]
     },
     {
