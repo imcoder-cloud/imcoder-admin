@@ -11,7 +11,7 @@
     >
       <el-menu-item index="0">
         <div class="logo">
-          <a href="/index">{{isCollapse?'Dd':'Dd - Admin'}}</a>
+          <a href="/index">{{isCollapse?'IA':'Imcoder - Admin'}}</a>
         </div>
       </el-menu-item>
 
