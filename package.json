@@ -18,7 +18,7 @@
     "echarts": "^4.4.0",
     "element-ui": "^2.12.0",
     "font-awesome": "^4.7.0",
-    "highlight.js": "^9.16.2",
+    "highlight.js": "^10.4.1",
     "mavon-editor": "^2.7.7",
     "monaco-editor": "^0.18.1",
     "monaco-editor-webpack-plugin": "^1.7.0",
