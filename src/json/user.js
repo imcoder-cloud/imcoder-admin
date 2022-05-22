@@ -25,7 +25,7 @@ const user = {
     },
     {
       id: 2,
-      path: 'https://github.com/dongdong-cloud/vue-admin',
+      path: 'https://gitee.com/imcoder-cloud/imcoder-admin',
       name: 'Project',
       enName: 'Project',
       icon: 'fa fa-github',
@@ -35,7 +35,7 @@ const user = {
       children: [
         {
           id: 3,
-          path: 'https://github.com/dongdong-cloud/vue-admin',
+          path: 'https://gitee.com/imcoder-cloud/imcoder-admin',
           name: '项目地址',
           enName: 'Project',
           icon: 'fa fa-github',
@@ -174,15 +174,15 @@ const user = {
       parentId: 0,
       component: 'home',
       children: [
-        // {
-        //   id: 10,
-        //   path: 'ueditor',
-        //   name: 'UEditor',
-        //   enName: 'UEditor',
-        //   icon: 'fa fa-pencil-square-o',
-        //   parentId: 9,
-        //   component: 'editor/ueditor'
-        // },
+        {
+          id: 10,
+          path: 'ueditor',
+          name: 'UEditor',
+          enName: 'UEditor',
+          icon: 'fa fa-pencil-square-o',
+          parentId: 9,
+          component: 'editor/ueditor'
+        },
         // {
         //   id: 11,
         //   path: 'code',

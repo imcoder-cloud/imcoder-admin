@@ -6,7 +6,7 @@
         github 地址：
         <a href="https://github.com/imcoder-cloud/imcoder-admin" target="_blank">https://github.com/imcoder-cloud/imcoder-admin</a> &nbsp;&nbsp;&nbsp;
         码云地址：
-        <a href="https://gitee.com/dongdong-cloud/imcoder-admin" target="_blank">https://gitee.com/dongdong-cloud/imcoder-admin</a>
+        <a href="https://gitee.com/imcoder-cloud/imcoder-admin" target="_blank">https://gitee.com/imcoder-cloud/imcoder-admin</a>
       </slot>
     </el-alert>
 
