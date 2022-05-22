@@ -76,12 +76,12 @@ Dd-Admin 是一个前端解决方案，基于 vue 2 和 element-ui 2.12.0 开发
 ### 系统截图
 -----
 
-![首页](./src/assets/images/1.jpg)
-![表格](./src/assets/images/2.jpg)
-![表单](./src/assets/images/3.jpg)
-![编辑器](./src/assets/images/4.jpg)
-![编辑器](./src/assets/images/5.jpg)
-![设置](./src/assets/images/6.jpg)
+![首页](https://gitee.com/imcoder-cloud/imcoder-admin/raw/master/src/assets/images/1.jpg)
+![表格](https://gitee.com/imcoder-cloud/imcoder-admin/raw/master/src/assets/images/2.jpg)
+![表单](https://gitee.com/imcoder-cloud/imcoder-admin/raw/master/src/assets/images/3.jpg)
+![编辑器](https://gitee.com/imcoder-cloud/imcoder-admin/raw/master/src/assets/images/4.jpg)
+![编辑器](https://gitee.com/imcoder-cloud/imcoder-admin/raw/master/src/assets/images/5.jpg)
+![设置](https://gitee.com/imcoder-cloud/imcoder-admin/raw/master/src/assets/images/6.jpg)
 
 ### 安装步骤
 -----
