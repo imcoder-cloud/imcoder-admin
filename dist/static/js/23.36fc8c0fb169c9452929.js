@@ -1,4 +1,4 @@
-webpackJsonp([22],{Yvoq:function(t,e,o){"use strict";
+webpackJsonp([23],{Yvoq:function(t,e,o){"use strict";
 /**!
  * Sortable 1.10.1
  * @author	RubaXa   <trash@rubaxa.org>

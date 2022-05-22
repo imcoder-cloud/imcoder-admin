@@ -99,7 +99,6 @@ export default {
     .login-btn {
       width: 100%;
       margin-top: 40px;
-      padding: 18px 0;
       box-shadow: 0 3px 10px 0 rgba(64, 158, 255, 0.75);
     }
   }

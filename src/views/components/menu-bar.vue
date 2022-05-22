@@ -11,7 +11,8 @@
     >
       <el-menu-item index="0">
         <div class="logo">
-          <a href="/index">{{isCollapse?'IA':'Imcoder - Admin'}}</a>
+          <a v-if="isCollapse" style="display:inline-block;" href="/"><img style="width:100%;max-width:40px;" src="../../assets/images/logo-light.png"></a>
+          <a v-else href="/">Imcoder - CMS</a>
         </div>
       </el-menu-item>
 
