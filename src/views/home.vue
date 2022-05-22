@@ -52,7 +52,7 @@ export default {
 
 <style lang="scss" scoped>
 .expand {
-  width: 200px !important;
+  width: 210px !important;
   transition: all 0.3s ease-in-out;
   -webkit-transition: all 0.3;
 }

@@ -87,6 +87,6 @@ export default {
 }
 .menu:not(.el-menu--collapse) {
   text-align: left;
-  width: 200px !important;
+  width: 210px !important;
 }
 </style>
