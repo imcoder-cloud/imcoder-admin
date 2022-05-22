@@ -183,33 +183,33 @@ const user = {
           parentId: 9,
           component: 'editor/ueditor'
         },
-        {
-          id: 11,
-          path: 'code',
-          name: '代码编辑器',
-          enName: 'Code',
-          icon: 'fa fa-code',
-          parentId: 9,
-          component: 'editor/code'
-        },
-        {
-          id: 36,
-          path: 'markdown',
-          name: 'markdown',
-          enName: 'markdown',
-          icon: 'dd markdown',
-          parentId: 9,
-          component: 'editor/markdown'
-        },
-        {
-          id: 41,
-          path: 'quill',
-          name: 'quill',
-          enName: 'quill',
-          icon: 'fa fa-file-text-o',
-          parentId: 9,
-          component: 'editor/quill'
-        }
+        // {
+        //   id: 11,
+        //   path: 'code',
+        //   name: '代码编辑器',
+        //   enName: 'Code',
+        //   icon: 'fa fa-code',
+        //   parentId: 9,
+        //   component: 'editor/code'
+        // },
+        // {
+        //   id: 36,
+        //   path: 'markdown',
+        //   name: 'markdown',
+        //   enName: 'markdown',
+        //   icon: 'dd markdown',
+        //   parentId: 9,
+        //   component: 'editor/markdown'
+        // },
+        // {
+        //   id: 41,
+        //   path: 'quill',
+        //   name: 'quill',
+        //   enName: 'quill',
+        //   icon: 'fa fa-file-text-o',
+        //   parentId: 9,
+        //   component: 'editor/quill'
+        // }
       ]
     },
     {
