@@ -174,15 +174,15 @@ const user = {
       parentId: 0,
       component: 'home',
       children: [
-        {
-          id: 10,
-          path: 'ueditor',
-          name: 'UEditor',
-          enName: 'UEditor',
-          icon: 'fa fa-pencil-square-o',
-          parentId: 9,
-          component: 'editor/ueditor'
-        },
+        // {
+        //   id: 10,
+        //   path: 'ueditor',
+        //   name: 'UEditor',
+        //   enName: 'UEditor',
+        //   icon: 'fa fa-pencil-square-o',
+        //   parentId: 9,
+        //   component: 'editor/ueditor'
+        // },
         // {
         //   id: 11,
         //   path: 'code',
