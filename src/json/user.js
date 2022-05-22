@@ -174,15 +174,15 @@ const user = {
       parentId: 0,
       component: 'home',
       children: [
-        {
-          id: 10,
-          path: 'ueditor',
-          name: 'UEditor',
-          enName: 'UEditor',
-          icon: 'fa fa-pencil-square-o',
-          parentId: 9,
-          component: 'editor/ueditor'
-        },
+        // {
+        //   id: 10,
+        //   path: 'ueditor',
+        //   name: 'UEditor',
+        //   enName: 'UEditor',
+        //   icon: 'fa fa-pencil-square-o',
+        //   parentId: 9,
+        //   component: 'editor/ueditor'
+        // },
         // {
         //   id: 11,
         //   path: 'code',
@@ -192,15 +192,15 @@ const user = {
         //   parentId: 9,
         //   component: 'editor/code'
         // },
-        // {
-        //   id: 36,
-        //   path: 'markdown',
-        //   name: 'markdown',
-        //   enName: 'markdown',
-        //   icon: 'dd markdown',
-        //   parentId: 9,
-        //   component: 'editor/markdown'
-        // },
+        {
+          id: 36,
+          path: 'markdown',
+          name: 'markdown',
+          enName: 'markdown',
+          icon: 'dd markdown',
+          parentId: 9,
+          component: 'editor/markdown'
+        },
         // {
         //   id: 41,
         //   path: 'quill',
