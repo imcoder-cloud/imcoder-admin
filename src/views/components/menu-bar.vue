@@ -11,8 +11,8 @@
     >
       <el-menu-item index="0" style="padding:0 12px;">
         <div class="logo">
-          <a v-if="isCollapse" style="display:inline-block;" href="/"><img style="width:100%;max-width:40px;" src="../../assets/images/logo-light.png"></a>
-          <a v-else href="/">Imcoder - Admin</a>
+          <a v-if="isCollapse" style="display:inline-block;" href="https://www.imcoder.fun/content/1653219529245"><img style="width:100%;max-width:40px;" src="../../assets/images/logo-light.png"></a>
+          <a v-else href="https://www.imcoder.fun/content/1653219529245">Imcoder - Admin</a>
         </div>
       </el-menu-item>
 
