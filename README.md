@@ -1,4 +1,4 @@
-<h2 align="center">Dd - Admin 后台管理模板</h2>
+<h2 align="center">Imcoder - Admin 后台管理模板</h2>
 <div align="center">
   <a href="https://github.com/vuejs/vue">
     <img src="https://img.shields.io/badge/vue-2.5.2-blue.svg" alt="vue">
@@ -71,7 +71,7 @@ Dd-Admin 是一个前端解决方案，基于 vue 2 和 element-ui 2.12.0 开发
 ### 演示地址
 -----
 
-演示地址 [http://www.imcoder.fun/imcoder-admin](http://www.imcoder.fun/imcoder-admin)
+演示地址 [https://www.imcoder.fun/imcoder-admin](https://www.imcoder.fun/imcoder-admin)
   
 ### 系统截图
 -----

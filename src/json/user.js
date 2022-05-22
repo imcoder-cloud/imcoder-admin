@@ -25,7 +25,7 @@ const user = {
     },
     {
       id: 2,
-      path: 'https://gitee.com/imcoder-cloud/imcoder-admin',
+      path: 'https://github.com/imcoder-cloud/imcoder-admin',
       name: 'Project',
       enName: 'Project',
       icon: 'fa fa-github',
@@ -35,7 +35,7 @@ const user = {
       children: [
         {
           id: 3,
-          path: 'https://gitee.com/imcoder-cloud/imcoder-admin',
+          path: 'https://github.com/imcoder-cloud/imcoder-admin',
           name: '项目地址',
           enName: 'Project',
           icon: 'fa fa-github',
@@ -371,7 +371,7 @@ const user = {
     },
     {
       id: 30,
-      path: 'https://dd-admin.ocreatech.com',
+      path: 'https://www.imcoder.fun/content/1653219529245',
       name: '链接',
       enName: 'Link',
       icon: 'fa fa-link',
@@ -380,7 +380,7 @@ const user = {
       children: [
         {
           id: 31,
-          path: 'https://dd-admin.ocreatech.com',
+          path: 'https://www.imcoder.fun/content/1653219529245',
           name: '外部链接',
           enName: 'External Link',
           icon: 'fa fa-external-link-square',
