@@ -5,14 +5,14 @@
       :collapse="isCollapse"
       :unique-opened="uniqueOpened"
       @select="handleSelect"
-      background-color="#545c64"
+      background-color="#001529"
       text-color="#fff"
       :default-active="this.$route.path"
     >
-      <el-menu-item index="0">
+      <el-menu-item index="0" style="padding:0 12px;">
         <div class="logo">
           <a v-if="isCollapse" style="display:inline-block;" href="/"><img style="width:100%;max-width:40px;" src="../../assets/images/logo-light.png"></a>
-          <a v-else href="/">Imcoder - CMS</a>
+          <a v-else href="/">Imcoder - Admin</a>
         </div>
       </el-menu-item>
 

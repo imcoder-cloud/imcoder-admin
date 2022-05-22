@@ -67,7 +67,7 @@ export default {
 }
 .aside-menu {
   border: none;
-  background-color: #545c64;
+  background-color: #001529;
 }
 .main {
   padding: 20px;
