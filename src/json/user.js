@@ -371,7 +371,7 @@ const user = {
     },
     {
       id: 30,
-      path: 'https://www.imcoder.fun/content/1653219529245',
+      path: 'https://www.imcoder.fun/content/imcoder-admin',
       name: '链接',
       enName: 'Link',
       icon: 'fa fa-link',
@@ -380,7 +380,7 @@ const user = {
       children: [
         {
           id: 31,
-          path: 'https://www.imcoder.fun/content/1653219529245',
+          path: 'https://www.imcoder.fun/content/imcoder-admin',
           name: '外部链接',
           enName: 'External Link',
           icon: 'fa fa-external-link-square',
