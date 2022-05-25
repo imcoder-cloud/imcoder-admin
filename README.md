@@ -17,14 +17,22 @@
 Dd-Admin 是一个前端解决方案，基于 vue 2 和 element-ui 2.12.0 开发的后台管理模板。功能涵盖动态路由、富文本编辑、图表统计等多种丰富组件。能够快速帮助中小型企业搭建后台产品模型。
 
 
+### 演示地址
+-----
+
+演示地址1 [https://www.imcoder.fun/imcoder-admin](https://www.imcoder.fun/imcoder-admin)
+演示地址2 [https://imcoder-cloud.gitee.io/imcoder-admin](https://imcoder-cloud.gitee.io/imcoder-admin)
+演示地址3 [https://imcoder-cloud.github.io/imcoder-admin/dist/index.html](https://imcoder-cloud.github.io/imcoder-admin/dist/index.html)
+
+
 ### 功能简介
 -----
 
 - 登录 / 注销
 
 - 动态路由
-  - 登录验证
-  - 权限控制（开发中）
+  - 登录验证（模拟）
+  - 权限控制（模拟）
 - 全局功能
   - 全屏显示
   - 菜单控制
@@ -58,8 +66,9 @@ Dd-Admin 是一个前端解决方案，基于 vue 2 和 element-ui 2.12.0 开发
   - 一键分享
 - 字体图标
 - 编辑器
-  - ueditor
-  - 代码编辑器
+  - ueditor（已注释）
+  - 代码编辑器（考虑用的较少已删除）
+  - markdown
 - 文件操作
   - Excel导入导出
   - PDf预览
@@ -68,11 +77,6 @@ Dd-Admin 是一个前端解决方案，基于 vue 2 和 element-ui 2.12.0 开发
   - 404 页面
   - 500 页面
 
-### 演示地址
------
-
-演示地址 [https://www.imcoder.fun/imcoder-admin](https://www.imcoder.fun/imcoder-admin)
-  
 ### 系统截图
 -----
 
